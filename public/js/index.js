@@ -20,65 +20,55 @@ window.addEventListener("load", () => {
 
 	const sentVerifyCode = document.getElementById("sentVerifyCode");
 	sentVerifyCode.addEventListener("click", async () => {
-		sentVerifyCode.disabled = true;
-		await fetch("/sentVerifyCode", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				username: getValue("username"),
-				email: getValue("email")
-			})
-		});
-
-		showAlert("验证码已发送");
-
-		const dsq = setInterval(() => {
-			sentVerifyCode.innerText = `剩余: ${time--}s`;
-			if (time < 0) {
-				time = 60;
-				sentVerifyCode.innerText = "获取验证码";
-				sentVerifyCode.disabled = false;
-				clearInterval(dsq);
-			}
-		}, 1000);
-	});
-
-	document.getElementById("submit").addEventListener("click", async () => {
-		const username = getValue("username");
-		const { valid, message } = usernameValidator.validate(username);
-		if (valid) {
-			const data = JSON.parse(await (await fetch("/whitelist", {
+		if (getValue("email")) {
+			sentVerifyCode.disabled = true;
+			await fetch("/sentVerifyCode", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({
-					username,
-					email: getValue("email"),
-					verifyCode: getValue("verifyCode")
+					username: getValue("username"),
+					email: getValue("email")
 				})
-			})).text());
-			showAlert(data.message);
+			});
+
+			showAlert("验证码已发送");
+
+			const dsq = setInterval(() => {
+				sentVerifyCode.innerText = `剩余: ${time--}s`;
+				if (time < 0) {
+					time = 60;
+					sentVerifyCode.innerText = "获取验证码";
+					sentVerifyCode.disabled = false;
+					clearInterval(dsq);
+				}
+			}, 1000);
+		} else showAlert("邮箱地址不能为空");
+	});
+
+	document.getElementById("submit").addEventListener("click", async () => {
+		const username = getValue("username");
+		const email = getValue("email");
+		const verifyCode = getValue("verifyCode");
+		const { valid, message } = usernameValidator.validate(username);
+		if (valid) {
+			if (email && verifyCode) {
+				const data = JSON.parse(await (await fetch("/whitelist", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						username,
+						email,
+						verifyCode
+					})
+				})).text());
+				showAlert(data.message);
+			} else showAlert("邮箱 或 验证码 不能为空");
 		} else {
 			showAlert(message);
 		}
-
-		// switch (data.code) {
-		// 	case 200: {
-		//
-		// 	}
-		// 	break;
-		//
-		// 	case 400: {
-		// 		alert(data.message)
-		// 	}
-		// 	break
-		//
-		// 	default: {
-		//
-		// 	}
-		// }
 	});
 });

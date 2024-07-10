@@ -6,6 +6,7 @@ import rconServer from "../server/rconServer";
 import { chalk, logger } from "../helper/helper";
 import UsernameValidatorHelper from "../helper/usernameValidatorHelper";
 import { DataModule } from "../interface/dataModuleInterface";
+import GenerateRandomCaptcha from "../util/grcUtil";
 
 const koaRouter: KoaRouter = new KoaRouter();
 
@@ -41,21 +42,46 @@ async function addWhitelist(socket: ParameterizedContext, username: string): Pro
 koaRouter.post("/whitelist", async (socket: ParameterizedContext): Promise<void> => {
 	socket.status = 200;
 	socket.type = "text/html";
-	const { username }: DataModule = socket.request.body as DataModule;
-	// if (data.verifyCode === GenerateRandomCaptcha.getCode(data.username).toString()) {
-	const { valid, message }: { valid: boolean, message: string } = UsernameValidatorHelper.validate(username);
-	if (valid) {
-		await addWhitelist(socket, username);
+	const { username, email, verifyCode }: DataModule = socket.request.body as DataModule;
+	if (username && email && verifyCode) {
+		try {
+			if (verifyCode === GenerateRandomCaptcha.getCode(username).toString()) {
+				const { valid, message }: { valid: boolean, message: string } = UsernameValidatorHelper.validate(username);
+				if (valid) {
+					await addWhitelist(socket, username);
+				} else {
+					logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, ${message}!`));
+					socket.body = JSON.stringify({
+						code: 410,
+						message,
+						data: []
+					});
+				}
+				GenerateRandomCaptcha.cleanCode(username);
+			} else {
+				logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, 输入错误验证码 [${verifyCode}]`));
+				socket.body = JSON.stringify({
+					code: 420,
+					message: "验证码错误",
+					data: []
+				});
+			}
+		} catch (err) {
+			logger.warn('客户端未发送验证码进行提交数据, 已被忽略')
+			socket.body = JSON.stringify({
+				code: 430,
+				message: "非法操作, 未发送验证码进行提交数据, 已忽略请求",
+				data: []
+			});
+		}
 	} else {
-		logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, ${message}!`));
+		logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, 客户端非法数据提交`));
 		socket.body = JSON.stringify({
-			code: 410,
-			message,
+			code: 440,
+			message: "非法数据提交",
 			data: []
 		});
 	}
-	// }
-	// socket.body = "";
 });
 
 // Export router

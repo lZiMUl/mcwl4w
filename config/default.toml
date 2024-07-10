@@ -3,7 +3,7 @@
 # 主机
 host = "0.0.0.0"
 # 端口
-port = 222
+port = 22
 
 # 邮箱服务 SMTP 配置
 [emailService]
