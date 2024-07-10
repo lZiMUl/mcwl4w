@@ -1,0 +1,173 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content is spaced out, with footer at the bottom */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.QQGroup {
+    max-width: 200px;
+    margin-top: -20px;
+    margin-left: 270px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+    background-color: transparent;
+    padding: 0 16px;
+    height: 32px;
+    line-height: 32px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.QQGroup:hover {
+    background-color: rgba(0, 0, 0, 0.08)
+}
+
+.QQGroup:active {
+    background-color: rgba(0, 0, 0, 0.14)
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app {
+    max-width: 800px; /* Increase width */
+    margin: 50px auto;
+    padding: 40px; /* Increase padding */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app div {
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+span {
+    display: inline-block;
+    width: 80px; /* Adjust width */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: calc(100% - 90px); /* Adjust width calculation */
+    padding: 12px; /* Increase padding for better visual */
+    margin-left: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px; /* Rounder corners */
+    box-sizing: border-box;
+    font-size: 16px; /* Adjust font size for better readability */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+}
+
+button {
+    background-color: dodgerblue;
+    background-image: linear-gradient(to right, dodgerblue, deepskyblue);
+    color: white;
+    padding: 14px 40px; /* Adjust padding to increase button width */
+    border: none;
+    border-radius: 10px; /* Make the button more rounded */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+#sentVerifyCode {
+    width: 150px;
+}
+
+#submit {
+    margin-top: 20px;
+    width: 180px;
+}
+
+button:hover {
+    background-color: dodgerblue;
+    background-image: linear-gradient(to right, deepskyblue, dodgerblue);
+    transform: translateY(-2px); /* Slightly lift the button on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    border-top: 1px solid #e4e4e4;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* New CSS for the verification code section */
+.verification-code {
+    display: flex;
+    align-items: center;
+}
+
+.verification-code input {
+    width: auto;
+    flex: 1;
+}
+
+.verification-code button {
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

@@ -1,0 +1,38 @@
+[2024-07-09T17:45:18.572] [ERROR] default - Cheese is too ripe!
+[2024-07-09T17:45:18.575] [FATAL] default - Cheese was breeding ground for listeria.
+[2024-07-09T17:45:51.885] [ERROR] default - Cheese is too ripe!
+[2024-07-09T17:45:51.887] [FATAL] default - Cheese was breeding ground for listeria.
+[2024-07-09T17:46:03.105] [ERROR] default - Cheese is too ripe!
+[2024-07-09T17:46:03.107] [FATAL] default - Cheese was breeding ground for listeria.
+[2024-07-09T17:51:31.714] [DEBUG] default - Got cheese.
+[2024-07-09T17:51:31.717] [INFO] default - Cheese is Comté.
+[2024-07-09T17:51:31.717] [WARN] default - Cheese is quite smelly.
+[2024-07-09T17:51:31.717] [ERROR] default - Cheese is too ripe!
+[2024-07-09T17:51:31.717] [FATAL] default - Cheese was breeding ground for listeria.
+[2024-07-09T17:51:31.737] [INFO] default - [31m[39m
+[31m----------lZiMUl Build Template----------[39m
+[31m[34mThe Web Server Is Built On The Host As 0.0.0.0 And The Port As 222[39m[31m[39m
+[31m[39m
+[31m[33mCopy This Address, Then Open It In The Browser[39m[31m[39m
+[31m[39m
+[31m[37mhttp://0.0.0.0:222/[39m[31m[39m
+[31m----------lZiMUl Build Template----------[39m
+[31m[39m
+[2024-07-09T17:54:52.164] [INFO] default - [31m[39m
+[31m----------lZiMUl Build Template----------[39m
+[31m[34mThe Web Server Is Built On The Host As 0.0.0.0 And The Port As 222[39m[31m[39m
+[31m[39m
+[31m[33mCopy This Address, Then Open It In The Browser[39m[31m[39m
+[31m[39m
+[31m[37mhttp://0.0.0.0:222/[39m[31m[39m
+[31m----------lZiMUl Build Template----------[39m
+[31m[39m
+[2024-07-09T17:55:07.525] [INFO] default - [31m[39m
+[31m----------lZiMUl Build Template----------[39m
+[31m[34mThe Web Server Is Built On The Host As 0.0.0.0 And The Port As 222[39m[31m[39m
+[31m[39m
+[31m[33mCopy This Address, Then Open It In The Browser[39m[31m[39m
+[31m[39m
+[31m[37mhttp://0.0.0.0:222/[39m[31m[39m
+[31m----------lZiMUl Build Template----------[39m
+[31m[39m

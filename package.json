@@ -1,0 +1,80 @@
+{
+  "name": "mcwl4w",
+  "description": "Minecraft self-service whitelisting service for web",
+  "version": "1.0.0",
+  "author": {
+    "name": "lZiMUl",
+    "email": "lzimul@lzimul.com",
+    "url": "https://lzimul.com"
+  },
+  "contributors": [
+    {
+      "name": "lZiMUl",
+      "email": "lzimul@lzimul.com",
+      "url": "https://lzimul.com"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "lZiMUl",
+      "email": "lzimul@lzimul.com",
+      "url": "https://lzimul.com"
+    }
+  ],
+  "homepage": "https://lzimul.com",
+  "main": "./build/index.js",
+  "types": "./lib/*",
+  "typings": "./lib/*",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "build": "tsc",
+    "dev": "tsc -w",
+    "lint": "eslint",
+    "typedoc": "typedoc"
+  },
+  "keywords": [
+    "lZiMUl",
+    "Minecraft",
+    "Server",
+    "VerifyCode",
+    "Captcha",
+    "Safe"
+  ],
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "chalk": "^4.0.0",
+    "commander": "^12.1.0",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
+    "koa-router": "^12.0.1",
+    "koa-static": "^5.0.0",
+    "log4js": "^6.9.1",
+    "nodemailer": "^6.9.14",
+    "rcon-client": "^4.2.4",
+    "toml": "^3.0.0",
+    "tslib": "^2.6.3"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.15.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa-router": "^7.4.8",
+    "@types/koa-static": "^4.0.4",
+    "@types/node": "^20.14.10",
+    "@types/nodemailer": "^6.4.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lZiMUl/mcwl4w.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lZiMUl/mcwl4w/issues/",
+    "email": "lzimul@lzimul.com"
+  },
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "private": false,
+  "preferGlobal": true,
+  "deprecated": false
+}
