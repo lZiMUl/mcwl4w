@@ -1,0 +1,26 @@
+# 网站服务器配置
+[webServer]
+# 主机
+host = "0.0.0.0"
+# 端口
+port = 222
+
+# 邮箱服务 SMTP 配置
+[emailService]
+# 主机
+host = "smtp.gmail.com"
+# 端口
+port = 587
+# 用户
+username = ""
+# 密码
+password = ""
+
+# Rcon服务器配置
+[rconServer]
+# 主机
+host = "127.0.0.1"
+# 端口
+port = 25575
+# 密码
+password = ""
