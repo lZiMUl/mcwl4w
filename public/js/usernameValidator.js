@@ -1,3 +1,5 @@
+"use strict";
+
 class UsernameValidatorHelper {
 	static minLength = 3;
 	static maxLength = 20;

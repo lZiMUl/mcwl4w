@@ -11,11 +11,11 @@ koaRouter.post("/sentVerifyCode", async (socket: ParameterizedContext): Promise<
 	const verifyCode: number = GenerateRandomCaptcha.generate((socket.request.body as DataModule).username);
 	console.info(target, verifyCode);
 	await emailService.service.sendMail({
-		from: emailService.config.user, // sender address
-		to: target, // list of receivers
-		subject: "Hello ✔", // Subject line
-		text: "Hello world?", // plain text body
-		html: verifyCode.toString() // html body
+		from: emailService.config.user,
+		to: target,
+		subject: "Hello ✔",
+		text: "Hello world?",
+		html: verifyCode.toString()
 	});
 });
 

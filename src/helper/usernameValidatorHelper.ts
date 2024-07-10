@@ -32,4 +32,5 @@ class UsernameValidatorHelper {
 	}
 }
 
+// Export Class
 export default UsernameValidatorHelper;

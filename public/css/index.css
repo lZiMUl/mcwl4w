@@ -7,7 +7,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures content is spaced out, with footer at the bottom */
+    justify-content: space-between;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -58,9 +58,9 @@ a {
 }
 
 .app {
-    max-width: 800px; /* Increase width */
+    max-width: 800px;
     margin: 50px auto;
-    padding: 40px; /* Increase padding */
+    padding: 40px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -78,7 +78,7 @@ a {
 
 span {
     display: inline-block;
-    width: 80px; /* Adjust width */
+    width: 80px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -86,33 +86,33 @@ span {
 input[type="text"],
 input[type="email"],
 input[type="number"] {
-    width: calc(100% - 90px); /* Adjust width calculation */
-    padding: 12px; /* Increase padding for better visual */
+    width: calc(100% - 90px);
+    padding: 12px;
     margin-left: 10px;
     border: 2px solid #ccc;
-    border-radius: 6px; /* Rounder corners */
+    border-radius: 6px;
     box-sizing: border-box;
-    font-size: 16px; /* Adjust font size for better readability */
-    outline: none; /* Remove default outline */
-    transition: border-color 0.3s ease; /* Smooth border transition */
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus {
-    border-color: #4CAF50; /* Change border color on focus */
+    border-color: #4CAF50;
 }
 
 button {
     background-color: dodgerblue;
     background-image: linear-gradient(to right, dodgerblue, deepskyblue);
     color: white;
-    padding: 14px 40px; /* Adjust padding to increase button width */
+    padding: 14px 40px;
     border: none;
-    border-radius: 10px; /* Make the button more rounded */
+    border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 #sentVerifyCode {
@@ -127,8 +127,8 @@ button {
 button:hover {
     background-color: dodgerblue;
     background-image: linear-gradient(to right, deepskyblue, dodgerblue);
-    transform: translateY(-2px); /* Slightly lift the button on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer {
@@ -145,7 +145,6 @@ footer p {
     color: #777;
 }
 
-/* New CSS for the verification code section */
 .verification-code {
     display: flex;
     align-items: center;

@@ -1,3 +1,5 @@
+"use strict";
+
 import Alert from "./customAlert.js";
 import usernameValidator from "./usernameValidator.js";
 
