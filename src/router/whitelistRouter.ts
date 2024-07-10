@@ -67,7 +67,7 @@ koaRouter.post("/whitelist", async (socket: ParameterizedContext): Promise<void>
 				});
 			}
 		} catch (err) {
-			logger.warn('客户端未发送验证码进行提交数据, 已被忽略')
+			logger.warn("客户端未发送验证码进行提交数据, 已被忽略");
 			socket.body = JSON.stringify({
 				code: 430,
 				message: "非法操作, 未发送验证码进行提交数据, 已忽略请求",
