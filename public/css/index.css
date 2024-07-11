@@ -1,3 +1,7 @@
+:root {
+    --font-color: white;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -9,7 +13,11 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-image: url("/public/image/background/default.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     color: #333;
 }
 
@@ -25,7 +33,7 @@ h1 {
     font-size: 2em;
 }
 
-.QQGroup {
+.contact {
     max-width: 200px;
     margin-top: -20px;
     margin-left: 270px;
@@ -42,14 +50,15 @@ h1 {
     transition: all 0.3s ease;
     border-radius: 5px;
     cursor: pointer;
+    color: var(--font-color);
 }
 
-.QQGroup:hover {
-    background-color: rgba(0, 0, 0, 0.08)
+.contact:hover {
+    background-color: deepskyblue
 }
 
-.QQGroup:active {
-    background-color: rgba(0, 0, 0, 0.14)
+.contact:active {
+    background-color: deepskyblue
 }
 
 a {
@@ -61,8 +70,9 @@ a {
     max-width: 800px;
     margin: 50px auto;
     padding: 40px;
-    background-color: white;
-    border-radius: 8px;
+    background-color: transparent;
+    backdrop-filter: blur(3px) brightness(0.8);
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -81,6 +91,13 @@ span {
     width: 80px;
     font-weight: bold;
     font-size: 20px;
+    text-align-last: justify;
+    color: var(--font-color);
+}
+
+span::after {
+    content: ":";
+    font-size: 25px;
 }
 
 input[type="text"],
@@ -89,24 +106,45 @@ input[type="number"] {
     width: calc(100% - 90px);
     padding: 12px;
     margin-left: 10px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
+    margin-bottom: 10px;
+    color: var(--font-color);
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid;
     box-sizing: border-box;
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s ease;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+    -webkit-text-fill-color: #FFFFFF !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus {
-    border-color: #4CAF50;
+    border-image: linear-gradient(to right, dodgerblue, deepskyblue) 1;
 }
 
 button {
-    background-color: dodgerblue;
     background-image: linear-gradient(to right, dodgerblue, deepskyblue);
-    color: white;
+    color: var(--font-color);
     padding: 14px 40px;
     border: none;
     border-radius: 10px;
@@ -125,7 +163,6 @@ button {
 }
 
 button:hover {
-    background-color: dodgerblue;
     background-image: linear-gradient(to right, deepskyblue, dodgerblue);
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);

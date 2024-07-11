@@ -64,19 +64,19 @@ window.addEventListener("load", async () => {
 		const verifyCode = getValue("verifyCode");
 		const { valid, message } = usernameValidator.validate(username);
 		if (valid) {
-				const data = JSON.parse(await (await fetch("/whitelist", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({
-						session,
-						username,
-						email,
-						verifyCode
-					})
-				})).text());
-				showAlert(data.message);
+			const data = JSON.parse(await (await fetch("/whitelist", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					session,
+					username,
+					email,
+					verifyCode
+				})
+			})).text());
+			showAlert(data.message);
 		} else {
 			showAlert(message);
 		}

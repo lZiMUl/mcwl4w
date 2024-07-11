@@ -15,7 +15,7 @@ const koaServer: Koa = new Koa();
 // Setup static of the router
 koaServer.use(koaStatic("."));
 koaServer.use(koaBodyparser({
-	enableTypes: ["json", "form", "text"]
+	enableTypes: ["json"]
 }));
 
 // Set up the router
