@@ -24,9 +24,9 @@ const [host, port]: Array<string | number> = [
 ];
 
 koaServer.listen({ host, port }, (): void => {
-	logger.info(chalk.red("----------lZiMUl 构建模板----------"));
+	logger.info(chalk.red("----------lZiMUl MCWL4W 服务----------"));
 	logger.info(chalk.blue(`该 Web服务器 在 主机为 [${host}], 端口为 [${port}] 上开放`));
+	logger.info(chalk.white(`http://${host === "0.0.0.0" ? "127.0.0.1" : host}:${port}/`));
 	logger.info(chalk.yellow("复制此地址，然后在浏览器中打开它"));
-	logger.info(chalk.white(`http://${host}:${port}/`));
-	logger.info(chalk.red("----------lZiMUl 构建模板----------\n"));
+	logger.info(chalk.red("----------lZiMUl MCWL4W 服务----------\n"));
 });

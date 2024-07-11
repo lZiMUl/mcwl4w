@@ -8,6 +8,5 @@ declare class UsernameValidatorHelper {
 		message: string;
 	};
 }
-
 export default UsernameValidatorHelper;
 //# sourceMappingURL=usernameValidatorHelper.d.ts.map

@@ -1,12 +1,12 @@
 import nodemailer from "nodemailer";
 
-export declare const host: string, port: number, user: string, pass: string;
+export declare const host: string, port: number, username: string, password: string;
 declare const _default: {
 	config: {
 		host: string;
 		port: number;
-		user: string;
-		pass: string;
+		username: string;
+		password: string;
 	};
 	service: nodemailer.Transporter<import("nodemailer/lib/smtp-transport").SentMessageInfo>;
 };

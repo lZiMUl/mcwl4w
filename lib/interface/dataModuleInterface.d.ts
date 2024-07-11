@@ -1,8 +1,9 @@
-interface DataModule {
+interface DataModuleInterface {
+	session: string;
 	username: string;
 	email: string;
 	verifyCode: string;
 }
 
-export type { DataModule };
+export type { DataModuleInterface };
 //# sourceMappingURL=dataModuleInterface.d.ts.map

@@ -5,12 +5,13 @@ import { Rcon } from "rcon-client";
 import rconServer from "../server/rconServer";
 import { chalk, logger } from "../helper/helper";
 import UsernameValidatorHelper from "../helper/usernameValidatorHelper";
-import { DataModule } from "../interface/dataModuleInterface";
+import { DataModuleInterface } from "../interface/dataModuleInterface";
 import GenerateRandomCaptcha from "../util/grcUtil";
+import dataBodyVerifyUtil, { DataBodyVerifyInterface } from "../util/DataBodyVerifyUtil";
 
 const koaRouter: KoaRouter = new KoaRouter();
 
-rconServer.on("connect", () => logger.info(chalk.green("Rcon 服务器已连接")));
+rconServer.on("connect", () => logger.info(chalk.green("Rcon 服务器已连接, 正在进行认证")));
 rconServer.on("authenticated", () => logger.info(chalk.green("Rcon 服务器认证成功\n")));
 
 const rs: Promise<Rcon> = rconServer.connect();
@@ -30,7 +31,7 @@ async function addWhitelist(socket: ParameterizedContext, username: string): Pro
 			data: []
 		});
 	} else {
-		logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, 查看是否重复添加!`));
+		logger.warn(chalk.yellow(`用户: [${username}] 添加到白名单失败, 查看是否重复添加!`));
 		socket.body = JSON.stringify({
 			code: 400,
 			message: "添加白名单失败, 查看是否已经在白名单中!",
@@ -41,44 +42,27 @@ async function addWhitelist(socket: ParameterizedContext, username: string): Pro
 
 koaRouter.post("/whitelist", async (socket: ParameterizedContext): Promise<void> => {
 	socket.status = 200;
-	socket.type = "text/html";
-	const { username, email, verifyCode }: DataModule = socket.request.body as DataModule;
-	if (username && email && verifyCode) {
-		try {
-			if (verifyCode === GenerateRandomCaptcha.getCode(username).toString()) {
-				const { valid, message }: { valid: boolean, message: string } = UsernameValidatorHelper.validate(username);
-				if (valid) {
-					await addWhitelist(socket, username);
-				} else {
-					logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, ${message}!`));
-					socket.body = JSON.stringify({
-						code: 410,
-						message,
-						data: []
-					});
-				}
-				GenerateRandomCaptcha.cleanCode(username);
-			} else {
-				logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, 输入错误验证码 [${verifyCode}]`));
-				socket.body = JSON.stringify({
-					code: 420,
-					message: "验证码错误",
-					data: []
-				});
-			}
-		} catch (err) {
-			logger.warn("客户端未发送验证码进行提交数据, 已被忽略");
+	socket.type = "application/json";
+	const dataBody: DataModuleInterface = socket.request.body as DataModuleInterface;
+	const { session, username }: DataModuleInterface = dataBody;
+	const { valid, code, message }: DataBodyVerifyInterface = dataBodyVerifyUtil(dataBody);
+	if (valid) {
+		const { valid, message }: { valid: boolean, message: string } = UsernameValidatorHelper.validate(username);
+		if (valid) {
+			await addWhitelist(socket, username);
+		} else {
+			logger.warn(chalk.yellow(`用户: [${username}] 添加到白名单失败, ${message}!`));
 			socket.body = JSON.stringify({
-				code: 430,
-				message: "非法操作, 未发送验证码进行提交数据, 已忽略请求",
+				code: 410,
+				message,
 				data: []
 			});
 		}
+		GenerateRandomCaptcha.cleanCode(session);
 	} else {
-		logger.error(chalk.red(`用户: [${username}] 添加到白名单失败, 客户端非法数据提交`));
 		socket.body = JSON.stringify({
-			code: 440,
-			message: "非法数据提交",
+			code,
+			message,
 			data: []
 		});
 	}

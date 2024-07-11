@@ -5,6 +5,7 @@ import koaBodyparser from "koa-bodyparser";
 
 // Import router
 import index from "../router/indexRouter";
+import getSession from "../router/getSessionRouter";
 import whitelist from "../router/whitelistRouter";
 import sentVerifyCode from "../router/sentVerifyCodeRouter";
 
@@ -19,6 +20,7 @@ koaServer.use(koaBodyparser({
 
 // Set up the router
 koaServer.use(index);
+koaServer.use(getSession);
 koaServer.use(whitelist);
 koaServer.use(sentVerifyCode);
 

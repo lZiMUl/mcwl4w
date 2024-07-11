@@ -12,8 +12,14 @@ function getConfig(index: string, key: string, file?: string): (Config | null) {
 	return Reflect.get(Reflect.get(parseData, index), key) ?? null;
 }
 
+function generateExpireTime(minute: number): Date {
+	const nowTime: Date = new Date();
+	return new Date(nowTime.setMinutes(nowTime.getMinutes() + minute));
+}
+
 // Export api
 export type { Config };
 export {
-	getConfig
+	getConfig,
+	generateExpireTime
 };

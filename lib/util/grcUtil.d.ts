@@ -1,10 +1,14 @@
 export default class GrcUtil {
 	private static CACHE;
 
-	static generate(username: string): number;
+	static generate(session: string): string;
 
-	static getCode(username: string): number;
+	static hasCode(session: string): boolean;
 
-	static cleanCode(username: string): void;
+	static getCode(session: string): string;
+
+	static getExpireTime(session: string): Date;
+
+	static cleanCode(session: string): void;
 }
 //# sourceMappingURL=grcUtil.d.ts.map
