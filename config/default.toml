@@ -3,7 +3,7 @@
 # 主机
 host = "0.0.0.0"
 # 端口
-port = 222
+port = 22
 
 # 邮箱服务配置
 [emailService]
@@ -19,8 +19,8 @@ password = ""
 # Rcon服务配置
 [rconService]
 # 主机
-host = "192.168.31.110"
+host = "127.0.0.1"
 # 端口
 port = 25575
 # 密码
-password = "AA123321"
+password = ""

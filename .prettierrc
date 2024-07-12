@@ -1,4 +1,8 @@
 {
+  "singleQuote": true,
+  "semi": false,
+  "trailingComma": "none",
+  "htmlWhitespaceSensitivity": "ignore",
   "tabWidth": 1,
   "useTabs": true
 }
