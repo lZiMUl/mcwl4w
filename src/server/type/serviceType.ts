@@ -1,5 +1,5 @@
-type ServiceName = 'web' | 'email' | 'rcon'
+type ServiceName = "web" | "email" | "rcon";
 
-type ServiceType = `${ServiceName}Service`
+type ServiceType = `${ServiceName}Service`;
 
-export default ServiceType
+export default ServiceType;
