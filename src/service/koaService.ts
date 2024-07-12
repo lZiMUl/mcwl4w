@@ -6,7 +6,7 @@ import koaBodyparser from "koa-bodyparser";
 // Import router
 import index from "../router/indexRouter";
 import getSession from "../router/getSessionRouter";
-import whitelist from "../router/whitelistRouter";
+import whitelist, { connectRconServer } from "../router/whitelistRouter";
 import sentVerifyCode from "../router/sentVerifyCodeRouter";
 
 // Initialize koa instance
@@ -32,3 +32,4 @@ koaService.use(async (socket: Koa.ParameterizedContext<Koa.DefaultContext>): Pro
 });
 
 export default koaService;
+export { connectRconServer };
