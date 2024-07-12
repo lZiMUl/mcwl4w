@@ -1,5 +1,8 @@
 import nodemailer from "nodemailer";
 import { getConfig } from "../util/apiUtil";
+import ServiceType from "../type/serviceType";
+
+const serviceType: ServiceType = "emailService";
 
 export const [
 	host,
@@ -7,10 +10,10 @@ export const [
 	username,
 	password
 ]: [string, number, string, string] = [
-	(getConfig("emailService", "host") ?? "127.0.0.1") as string,
-	(getConfig("emailService", "port") ?? 587) as number,
-	(getConfig("emailService", "username") ?? "") as string,
-	(getConfig("emailService", "password") ?? "") as string
+	(getConfig(serviceType, "host") ?? "127.0.0.1") as string,
+	(getConfig(serviceType, "port") ?? 587) as number,
+	(getConfig(serviceType, "username") ?? "") as string,
+	(getConfig(serviceType, "password") ?? "") as string
 ];
 
 export default {

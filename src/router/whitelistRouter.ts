@@ -2,7 +2,7 @@ import { ParameterizedContext } from "koa";
 import KoaRouter from "koa-router";
 import { Rcon } from "rcon-client";
 
-import rconServer from "../server/rconServer";
+import rconService from "../service/rconService";
 import { chalk, logger } from "../helper/helper";
 import UsernameValidatorHelper from "../helper/usernameValidatorHelper";
 import { DataModuleInterface } from "../interface/dataModuleInterface";
@@ -11,10 +11,10 @@ import dataBodyVerifyUtil, { DataBodyVerifyInterface } from "../util/DataBodyVer
 
 const koaRouter: KoaRouter = new KoaRouter();
 
-rconServer.on("connect", () => logger.info(chalk.green("Rcon 服务器已连接, 正在进行认证")));
-rconServer.on("authenticated", () => logger.info(chalk.green("Rcon 服务器认证成功\n")));
+rconService.on("connect", () => logger.info(chalk.green("Rcon 服务器已连接, 正在进行认证")));
+rconService.on("authenticated", () => logger.info(chalk.green("Rcon 服务器认证成功\n")));
 
-const rs: Promise<Rcon> = rconServer.connect();
+const rs: Promise<Rcon> = rconService.connect();
 
 async function addWhitelist(socket: ParameterizedContext, username: string): Promise<void> {
 	const whitelist: string = await (await rs).send("whitelist list");

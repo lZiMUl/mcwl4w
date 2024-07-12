@@ -10,25 +10,25 @@ import whitelist from "../router/whitelistRouter";
 import sentVerifyCode from "../router/sentVerifyCodeRouter";
 
 // Initialize koa instance
-const koaServer: Koa = new Koa();
+const koaService: Koa = new Koa();
 
 // Setup static of the router
-koaServer.use(koaStatic("."));
-koaServer.use(koaBodyparser({
+koaService.use(koaStatic("."));
+koaService.use(koaBodyparser({
 	enableTypes: ["json"]
 }));
 
 // Set up the router
-koaServer.use(index);
-koaServer.use(getSession);
-koaServer.use(whitelist);
-koaServer.use(sentVerifyCode);
+koaService.use(index);
+koaService.use(getSession);
+koaService.use(whitelist);
+koaService.use(sentVerifyCode);
 
 // Set up the 404 page
-koaServer.use(async (socket: Koa.ParameterizedContext<Koa.DefaultContext>): Promise<void> => {
+koaService.use(async (socket: Koa.ParameterizedContext<Koa.DefaultContext>): Promise<void> => {
 	socket.status = 404;
 	socket.type = "text/html";
 	socket.body = "Sorry! The Page Is Missing";
 });
 
-export default koaServer;
+export default koaService;
