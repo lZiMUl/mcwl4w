@@ -1,1 +1,0 @@
-{"version":3,"file":"dataBodyVerifyInterface.d.ts","sourceRoot":"","sources":["../../../src/server/interface/dataBodyVerifyInterface.ts"],"names":[],"mappings":"AAAA,UAAU,uBAAuB;IAChC,KAAK,EAAE,OAAO,CAAC;IACf,IAAI,EAAE,MAAM,CAAC;IACb,OAAO,EAAE,MAAM,CAAC;CAChB;AAED,YAAY,EAAE,uBAAuB,EAAE,CAAC"}
