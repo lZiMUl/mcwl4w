@@ -11,7 +11,6 @@ export class windowApiVerify {
     }
   }
 }
-
 export class navigatorApiVerify {
   constructor(attribute, success, fail) {
     if (success) {

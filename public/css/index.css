@@ -52,11 +52,9 @@ h1 {
     cursor: pointer;
     color: var(--font-color);
 }
-
 .contact:hover {
     background-color: deepskyblue;
 }
-
 .contact:active {
     background-color: deepskyblue;
 }
@@ -78,7 +76,6 @@ a {
     flex-direction: column;
     align-items: center;
 }
-
 .app div {
     margin-bottom: 15px;
     width: 100%;
@@ -94,7 +91,6 @@ span {
     text-align-last: justify;
     color: var(--font-color);
 }
-
 span::after {
     content: ":";
     font-size: 25px;
@@ -118,7 +114,6 @@ input[type=number] {
     outline: none;
     transition: border-color 0.3s ease;
 }
-
 input[type=text]::-webkit-outer-spin-button, input[type=text]::-webkit-inner-spin-button,
 input[type=email]::-webkit-outer-spin-button,
 input[type=email]::-webkit-inner-spin-button,
@@ -126,7 +121,6 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-
 input[type=text]:-internal-autofill-previewed, input[type=text]:-internal-autofill-selected,
 input[type=email]:-internal-autofill-previewed,
 input[type=email]:-internal-autofill-selected,
@@ -135,13 +129,11 @@ input[type=number]:-internal-autofill-selected {
     -webkit-text-fill-color: #FFFFFF !important;
     transition: background-color 5000s ease-in-out 0s !important;
 }
-
 input[type=text][type=number],
 input[type=email][type=number],
 input[type=number][type=number] {
     -moz-appearance: textfield;
 }
-
 input[type=text]:focus,
 input[type=email]:focus,
 input[type=number]:focus {
@@ -158,16 +150,13 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
-
 button#sentVerifyCode {
     width: 150px;
 }
-
 button#submit {
     margin-top: 20px;
     width: 180px;
 }
-
 button:hover {
     background-image: linear-gradient(to right, deepskyblue, dodgerblue);
     transform: translateY(-2px);
@@ -181,7 +170,6 @@ footer {
     border-top: 1px solid #e4e4e4;
     width: 100%;
 }
-
 footer p {
     margin: 0;
     font-size: 0.9em;
@@ -192,12 +180,10 @@ footer p {
     display: flex;
     align-items: center;
 }
-
 .verification-code input {
     width: auto;
     flex: 1;
 }
-
 .verification-code button {
     margin-left: 10px;
     flex-shrink: 0;
