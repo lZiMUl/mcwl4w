@@ -3,7 +3,7 @@ import tseslint from "typescript-eslint";
 
 export default [
 	{
-		files: ["src/**/*.ts"],
+		files: ["/**/*.ts"],
 		languageOptions: {
 			globals: globals.node
 		},
