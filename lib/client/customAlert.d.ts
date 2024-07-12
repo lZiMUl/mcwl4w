@@ -12,15 +12,15 @@ export default class Alert {
   private ac;
   private de;
 
-  constructor({content, title, close}: Config<string>);
+  constructor({ content, title, close }: Config<string>);
 
   addEventListener(
     eventName: string,
     callback: (
       event: Event & {
         Alert: HTMLElement;
-      }
-    ) => void
+      },
+    ) => void,
   ): void;
 }
 export {};

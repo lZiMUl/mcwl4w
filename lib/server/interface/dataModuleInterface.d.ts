@@ -5,5 +5,5 @@ interface DataModuleInterface {
   verifyCode: string;
 }
 
-export type {DataModuleInterface};
+export type { DataModuleInterface };
 //# sourceMappingURL=dataModuleInterface.d.ts.map

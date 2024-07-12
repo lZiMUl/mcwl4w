@@ -3,5 +3,5 @@ interface VerifyCodeInterface {
   expireTime: Date;
 }
 
-export type {VerifyCodeInterface};
+export type { VerifyCodeInterface };
 //# sourceMappingURL=verifyCodeInterface.d.ts.map

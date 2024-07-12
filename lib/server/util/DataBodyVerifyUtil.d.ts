@@ -1,5 +1,5 @@
-import {DataModuleInterface} from '../interface/dataModuleInterface';
-import {DataBodyVerifyInterface} from '../interface/dataBodyVerifyInterface';
+import { DataModuleInterface } from "../interface/dataModuleInterface";
+import { DataBodyVerifyInterface } from "../interface/dataBodyVerifyInterface";
 
 export default function ({
   session,
@@ -7,5 +7,5 @@ export default function ({
   email,
   verifyCode,
 }: DataModuleInterface): DataBodyVerifyInterface;
-export type {DataBodyVerifyInterface};
+export type { DataBodyVerifyInterface };
 //# sourceMappingURL=DataBodyVerifyUtil.d.ts.map

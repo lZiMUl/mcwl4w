@@ -5,7 +5,7 @@ export class windowApiVerify {
         success(window[attribute]);
       } else {
         fail(
-          `Your current browser does not support [${attribute}] service parameter`
+          `Your current browser does not support [${attribute}] service parameter`,
         );
       }
     }
@@ -19,7 +19,7 @@ export class navigatorApiVerify {
         success(navigator[attribute]);
       } else {
         fail(
-          `Your current browser does not support [${attribute}] service parameter`
+          `Your current browser does not support [${attribute}] service parameter`,
         );
       }
     }

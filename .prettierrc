@@ -7,7 +7,9 @@
   "prettier.proseWrap": "preserve",
   "prettier.arrowParens": "avoid",
   "prettier.bracketSpacing": true,
-  "prettier.disableLanguages": ["vue"],
+  "prettier.disableLanguages": [
+    "vue"
+  ],
   "prettier.endOfLine": "auto",
   "prettier.eslintIntegration": false,
   "prettier.htmlWhitespaceSensitivity": "ignore",

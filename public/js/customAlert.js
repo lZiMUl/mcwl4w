@@ -1,19 +1,19 @@
-import {navigatorApiVerify} from './apiVerify.js';
+import { navigatorApiVerify } from "./apiVerify.js";
 
 export default class Alert {
   static list = [];
   frame;
 
-  constructor({content, title, close}) {
+  constructor({ content, title, close }) {
     const [OVERLAY, FRAME, DIV, TITLE, TITLEDIV, CONTENT, CONTENTDIV, DONE] = [
-      this.ce('div'),
-      this.ce('div'),
-      this.ce('div'),
-      this.ce('h3'),
-      this.ce('div'),
-      this.ce('div'),
-      this.ce('div'),
-      this.ce('button'),
+      this.ce("div"),
+      this.ce("div"),
+      this.ce("div"),
+      this.ce("h3"),
+      this.ce("div"),
+      this.ce("div"),
+      this.ce("div"),
+      this.ce("button"),
     ];
     this.ssa(
       OVERLAY,
@@ -25,7 +25,7 @@ export default class Alert {
 			height: 100%;
 			background: rgba(0, 0, 0, 0.5);
 			z-index: 999;
-		`
+		`,
     );
     this.ssa(
       FRAME,
@@ -46,7 +46,7 @@ export default class Alert {
 			opacity: 0;
 			animation: fadeIn 0.5s forwards;
 			background-clip: padding-box;
-		`
+		`,
     );
     this.ssa(
       DIV,
@@ -54,13 +54,13 @@ export default class Alert {
 			padding: 20px;
 			text-align: center;
 			border-radius: 10px;
-		`
+		`,
     );
     this.ssa(
       TITLEDIV,
       `
 			margin-bottom: 20px;
-		`
+		`,
     );
     this.ssa(
       TITLE,
@@ -69,7 +69,7 @@ export default class Alert {
 			font-size: 20px;
 			color: #333;
 			font-weight: bold;
-		`
+		`,
     );
     this.ssa(
       CONTENTDIV,
@@ -78,14 +78,14 @@ export default class Alert {
 			overflow-y: auto;
 			margin-bottom: 20px;
 			padding: 0 10px;
-		`
+		`,
     );
     this.ssa(
       CONTENT,
       `
 			font-size: 16px;
 			color: #555;
-		`
+		`,
     );
     this.ssa(
       DONE,
@@ -100,15 +100,15 @@ export default class Alert {
 			color: #fff;
 			cursor: pointer;
 			transition: background 0.3s ease;
-		`
+		`,
     );
-    TITLE.innerText = title ? title : 'Alert';
-    CONTENT.innerHTML = content ? content : '';
+    TITLE.innerText = title ? title : "Alert";
+    CONTENT.innerHTML = content ? content : "";
     if (CONTENT.innerHTML) {
-      const scripts = CONTENT.getElementsByTagName('script');
+      const scripts = CONTENT.getElementsByTagName("script");
       for (let index = 0; index < scripts.length; index++) {
-        const script = this.ce('script');
-        script.type = 'text/javascript';
+        const script = this.ce("script");
+        script.type = "text/javascript";
         const subScript = scripts[index];
         if (subScript.src) {
           script.src = subScript.src;
@@ -118,17 +118,17 @@ export default class Alert {
         document.head.appendChild(script);
       }
     }
-    DONE.innerText = close ? close : 'Close';
-    DONE.addEventListener('click', () => {
-      FRAME.style.opacity = '0';
-      OVERLAY.style.opacity = '0';
+    DONE.innerText = close ? close : "Close";
+    DONE.addEventListener("click", () => {
+      FRAME.style.opacity = "0";
+      OVERLAY.style.opacity = "0";
       FRAME.remove();
       OVERLAY.remove();
       this.de();
       new navigatorApiVerify(
-        'vibrate',
+        "vibrate",
         () => navigator.vibrate(200),
-        console.warn
+        console.warn,
       );
     });
     this.ac(TITLEDIV, TITLE);
@@ -137,7 +137,7 @@ export default class Alert {
     this.ac(DIV, CONTENTDIV);
     this.ac(DIV, DONE);
     this.ac(FRAME, DIV);
-    Alert.list.push({overlay: OVERLAY, frame: FRAME});
+    Alert.list.push({ overlay: OVERLAY, frame: FRAME });
     this.frame = FRAME;
     this.de();
   }
@@ -149,10 +149,10 @@ export default class Alert {
         callback(
           Object.assign(event, {
             Alert: this.frame,
-          })
+          }),
         );
       },
-      false
+      false,
     );
   }
 
@@ -170,7 +170,7 @@ export default class Alert {
 
   de() {
     if (Alert.list.length) {
-      const {overlay, frame} = Alert.list.shift();
+      const { overlay, frame } = Alert.list.shift();
       this.ac(document.body, overlay);
       this.ac(document.body, frame);
     }
