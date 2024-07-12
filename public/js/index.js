@@ -1,6 +1,6 @@
-import Alert from "./customAlert.js";
-import usernameValidator from "./usernameValidator.js";
-window.addEventListener("load", async () => {
+import Alert from './customAlert.js';
+import usernameValidator from './usernameValidator.js';
+window.addEventListener('load', async () => {
     function getValue(id) {
         return document.getElementById(id).value;
     }
@@ -8,30 +8,30 @@ window.addEventListener("load", async () => {
         new Alert({
             title: document.title,
             content,
-            close: "知道了!"
+            close: '知道了!'
         });
     }
-    const { session } = JSON.parse(await (await fetch("/getSession", { method: "GET" })).text());
+    const { session } = JSON.parse(await (await fetch('/getSession', { method: 'GET' })).text());
     let time = 60;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const sentVerifyCode = document.getElementById("sentVerifyCode");
-    sentVerifyCode.addEventListener("click", async () => {
-        const email = getValue("email");
+    const sentVerifyCode = document.getElementById('sentVerifyCode');
+    sentVerifyCode.addEventListener('click', async () => {
+        const email = getValue('email');
         if (!email) {
-            return showAlert("邮箱地址不能为空");
+            return showAlert('邮箱地址不能为空');
         }
         if (!emailRegex.test(email)) {
-            return showAlert("邮箱地址不合法");
+            return showAlert('邮箱地址不合法');
         }
         sentVerifyCode.disabled = true;
-        fetch("/sentVerifyCode", {
-            method: "POST",
+        fetch('/sentVerifyCode', {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 session,
-                username: getValue("username"),
+                username: getValue('username'),
                 email
             })
         }).then(async (data) => {
@@ -42,7 +42,7 @@ window.addEventListener("load", async () => {
                     sentVerifyCode.innerText = `重新发送: ${time--}s`;
                     if (time < 0) {
                         time = 60;
-                        sentVerifyCode.innerText = "获取验证码";
+                        sentVerifyCode.innerText = '获取验证码';
                         sentVerifyCode.disabled = false;
                         clearInterval(dsq);
                     }
@@ -52,16 +52,16 @@ window.addEventListener("load", async () => {
                 sentVerifyCode.disabled = false;
         });
     });
-    document.getElementById("submit")?.addEventListener("click", async () => {
-        const username = getValue("username");
-        const email = getValue("email");
-        const verifyCode = getValue("verifyCode");
+    document.getElementById('submit')?.addEventListener('click', async () => {
+        const username = getValue('username');
+        const email = getValue('email');
+        const verifyCode = getValue('verifyCode');
         const { valid, message } = usernameValidator.validate(username);
         if (valid) {
-            const data = JSON.parse(await (await fetch("/whitelist", {
-                method: "POST",
+            const data = JSON.parse(await (await fetch('/whitelist', {
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json"
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     session,
