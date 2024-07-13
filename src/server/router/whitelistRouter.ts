@@ -46,11 +46,10 @@ async function addWhitelist(
 }
 
 rconService.on('connect', () =>
-  logger.info(chalk.green('Rcon 服务器已连接, 正在进行认证'))
+  logger.info(chalk.green('Rcon 服务已连接, 正在进行认证'))
 );
 rconService.on('authenticated', (): void => {
-  logger.info(chalk.green('Rcon 服务器认证成功'));
-  logger.info(chalk.red('----------lZiMUl MCWL4W 服务----------\n'));
+  logger.info(chalk.green('Rcon 服务认证成功\n'));
   koaRouter.post(
     '/whitelist',
     async (socket: ParameterizedContext): Promise<void> => {
@@ -88,8 +87,8 @@ rconService.on('authenticated', (): void => {
   );
 });
 
-export function connectRconServer() {
-  rconService.connect();
+export async function connectRconService(): Promise<void> {
+  await rconService.connect();
 }
 
 // Export router

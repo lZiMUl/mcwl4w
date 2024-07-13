@@ -7,13 +7,13 @@
     ],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "rootDir": "src/server",
-    "declarationDir": "lib/server",
-    "outDir": "build",
+    "rootDir": "./src/server",
+    "declarationDir": "./lib/server",
+    "outDir": "./build",
     "importHelpers": true,
     "resolveJsonModule": true
   },
   "include": [
-    "src/server/**/*"
+    "./src/server/**/*"
   ]
 }

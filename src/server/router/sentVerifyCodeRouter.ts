@@ -51,12 +51,10 @@ koaRouter.post(
         });
       }
     } catch (error) {
-      logger.error(
-        chalk.red(`服务器邮箱配置出现问题 ${(error as Error).message}`)
-      );
+      logger.error(chalk.red(`邮箱服务配置错误 ${(error as Error).message}`));
       socket.body = JSON.stringify({
         status: false,
-        message: '服务器邮箱配置出现问题'
+        message: '邮箱服务配置错误'
       });
     }
   }

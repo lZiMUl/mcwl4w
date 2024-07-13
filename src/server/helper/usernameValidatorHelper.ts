@@ -1,12 +1,14 @@
+export interface ValidateResult {
+  valid: boolean;
+  message: string;
+}
+
 export default class UsernameValidatorHelper {
   private static minLength: number = 3;
   private static maxLength: number = 20;
   private static allowedCharacters: RegExp = /^[a-zA-Z0-9_]+$/;
 
-  public static validate(username: string): {
-    valid: boolean;
-    message: string;
-  } {
+  public static validate(username: string): ValidateResult {
     if (username.length < this.minLength) {
       return {
         valid: false,

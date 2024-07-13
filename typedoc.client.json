@@ -1,0 +1,9 @@
+{
+  "entryPoints": [
+    "./src/client/ts"
+  ],
+  "out": "./docs/client",
+  "readme": "README.md",
+  "name": "MCWL4W Client",
+  "tsconfig": "./tsconfig.client.json"
+}

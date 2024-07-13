@@ -28,12 +28,14 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "build:css": "npx sass ./src/client/scss/:public/css",
-    "build:client": "npx tsc -p tsconfig.client.json",
-    "build:server": "npx tsc -p tsconfig.server.json",
-    "build": "npm run lint && npm run build:css && npm run build:client && npm run build:server && npm run typedoc",
     "lint": "npx eslint --fix",
-    "typedoc": "npx typedoc"
+    "build": "npm run lint && npm run build:css && npm run build:client && npm run build:server && npm run typedoc:client && npm run typedoc:server",
+    "build:css": "npx sass ./src/client/scss:public/css",
+    "build:client": "npx tsc -p ./tsconfig.client.json",
+    "build:server": "npx tsc -p ./tsconfig.server.json",
+    "typedoc:client": "typedoc --options ./typedoc.client.json",
+    "typedoc:server": "typedoc --options ./typedoc.server.json",
+    "dev": "npm run build && npm run start"
   },
   "keywords": [
     "lZiMUl",

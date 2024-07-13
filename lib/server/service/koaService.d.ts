@@ -1,6 +1,6 @@
 import Koa from 'koa';
-import { connectRconServer } from '../router/whitelistRouter';
+import { connectRconService } from '../router/whitelistRouter';
 declare const koaService: Koa;
 export default koaService;
-export { connectRconServer };
+export { connectRconService };
 //# sourceMappingURL=koaService.d.ts.map
