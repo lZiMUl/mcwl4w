@@ -1,38 +1,11 @@
-## 网站服务配置
-#[webService]
-## 主机
-#host = "0.0.0.0"
-## 端口
-#port = 22
-#
-## 邮箱服务配置
-#[emailService]
-## 主机
-#host = "smtp.gmail.com"
-## 端口
-#port = 587
-## 用户
-#username = ""
-## 密码
-#password = ""
-#
-## Rcon服务配置
-#[rconService]
-## 主机
-#host = "127.0.0.1"
-## 端口
-#port = 25575
-## 密码
-#password = ""
-
-# 网站 服务配置
+# 网站服务配置
 [webService]
 # 主机
 host = "0.0.0.0"
 # 端口
-port = 222
+port = 22
 
-# 邮箱 服务配置
+# 邮箱服务配置
 [emailService]
 # 主机
 host = "smtp.gmail.com"
@@ -43,11 +16,11 @@ username = ""
 # 密码
 password = ""
 
-# Rcon 服务配置
+# Rcon服务配置
 [rconService]
 # 主机
-host = "192.168.31.110"
+host = "127.0.0.1"
 # 端口
 port = 25575
 # 密码
-password = "AA123321"
+password = ""
