@@ -1,4 +1,4 @@
-type ServiceName = "web" | "email" | "rcon";
+type ServiceName = 'web' | 'email' | 'rcon';
 
 type ServiceType = `${ServiceName}Service`;
 

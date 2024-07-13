@@ -1,26 +1,10 @@
 {
-  "prettier": {
-    "printWidth": 100,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": false,
-    "singleQuote": true,
-    "proseWrap": "preserve",
-    "arrowParens": "avoid",
-    "bracketSpacing": true,
-    "disableLanguages": [
-      "vue"
-    ],
-    "endOfLine": "auto",
-    "eslintIntegration": false,
-    "htmlWhitespaceSensitivity": "ignore",
-    "jsxBracketSameLine": false,
-    "jsxSingleQuote": false,
-    "parser": "babylon",
-    "requireConfig": false,
-    "stylelintIntegration": false,
-    "trailingComma": "none",
-    "tslintIntegration": false
-  }
+  "semi": true,
+  "singleQuote": true,
+  "proseWrap": "preserve",
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "parser": "typescript",
+  "trailingComma": "none"
 }
-

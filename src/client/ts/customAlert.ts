@@ -1,4 +1,4 @@
-import { navigatorApiVerify } from "./apiVerify.js";
+import { navigatorApiVerify } from './apiVerify.js';
 
 interface List<T> {
   overlay: T;
@@ -24,16 +24,16 @@ export default class Alert {
       TITLEDIV,
       CONTENT,
       CONTENTDIV,
-      DONE,
+      DONE
     ]: Array<HTMLElement> = [
-      this.ce("div"),
-      this.ce("div"),
-      this.ce("div"),
-      this.ce("h3"),
-      this.ce("div"),
-      this.ce("div"),
-      this.ce("div"),
-      this.ce("button"),
+      this.ce('div'),
+      this.ce('div'),
+      this.ce('div'),
+      this.ce('h3'),
+      this.ce('div'),
+      this.ce('div'),
+      this.ce('div'),
+      this.ce('button')
     ];
 
     this.ssa(
@@ -46,7 +46,7 @@ export default class Alert {
 			height: 100%;
 			background: rgba(0, 0, 0, 0.5);
 			z-index: 999;
-		`,
+		`
     );
 
     this.ssa(
@@ -68,7 +68,7 @@ export default class Alert {
 			opacity: 0;
 			animation: fadeIn 0.5s forwards;
 			background-clip: padding-box;
-		`,
+		`
     );
     this.ssa(
       DIV,
@@ -76,13 +76,13 @@ export default class Alert {
 			padding: 20px;
 			text-align: center;
 			border-radius: 10px;
-		`,
+		`
     );
     this.ssa(
       TITLEDIV,
       `
 			margin-bottom: 20px;
-		`,
+		`
     );
     this.ssa(
       TITLE,
@@ -91,7 +91,7 @@ export default class Alert {
 			font-size: 20px;
 			color: #333;
 			font-weight: bold;
-		`,
+		`
     );
     this.ssa(
       CONTENTDIV,
@@ -100,14 +100,14 @@ export default class Alert {
 			overflow-y: auto;
 			margin-bottom: 20px;
 			padding: 0 10px;
-		`,
+		`
     );
     this.ssa(
       CONTENT,
       `
 			font-size: 16px;
 			color: #555;
-		`,
+		`
     );
     this.ssa(
       DONE,
@@ -122,20 +122,20 @@ export default class Alert {
 			color: #fff;
 			cursor: pointer;
 			transition: background 0.3s ease;
-		`,
+		`
     );
 
-    TITLE.innerText = title ? title : "Alert";
-    CONTENT.innerHTML = content ? content : "";
+    TITLE.innerText = title ? title : 'Alert';
+    CONTENT.innerHTML = content ? content : '';
 
     if (CONTENT.innerHTML) {
       const scripts: HTMLCollectionOf<HTMLScriptElement> =
-        CONTENT.getElementsByTagName("script");
+        CONTENT.getElementsByTagName('script');
       for (let index: number = 0; index < scripts.length; index++) {
         const script: HTMLScriptElement = this.ce(
-          "script",
+          'script'
         ) as HTMLScriptElement;
-        script.type = "text/javascript";
+        script.type = 'text/javascript';
         const subScript: HTMLScriptElement = scripts[index];
         if (subScript.src) {
           script.src = subScript.src;
@@ -145,17 +145,17 @@ export default class Alert {
         document.head.appendChild(script);
       }
     }
-    DONE.innerText = close ? close : "Close";
-    DONE.addEventListener("click", () => {
-      FRAME.style.opacity = "0";
-      OVERLAY.style.opacity = "0";
+    DONE.innerText = close ? close : 'Close';
+    DONE.addEventListener('click', () => {
+      FRAME.style.opacity = '0';
+      OVERLAY.style.opacity = '0';
       FRAME.remove();
       OVERLAY.remove();
       this.de();
       new navigatorApiVerify(
-        "vibrate",
+        'vibrate',
         () => navigator.vibrate(200),
-        console.warn,
+        console.warn
       );
     });
 
@@ -174,18 +174,18 @@ export default class Alert {
 
   public addEventListener(
     eventName: string,
-    callback: (event: Event & { Alert: HTMLElement }) => void,
+    callback: (event: Event & { Alert: HTMLElement }) => void
   ): void {
     this.frame.addEventListener(
       eventName,
       (event: Event) => {
         callback(
           Object.assign(event, {
-            Alert: this.frame,
-          }),
+            Alert: this.frame
+          })
         );
       },
-      false,
+      false
     );
   }
 

@@ -1,7 +1,7 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
-import { VerifyCodeInterface } from "../interface/verifyCodeInterface";
-import { generateExpireTime } from "./apiUtil";
+import { VerifyCodeInterface } from '../interface/verifyCodeInterface';
+import { generateExpireTime } from './apiUtil';
 
 export default class GrcUtil {
   private static CACHE: Map<string, VerifyCodeInterface> = new Map();
@@ -9,7 +9,7 @@ export default class GrcUtil {
   public static generate(session: string, minute: number): string {
     this.CACHE.set(session, {
       code: faker.number.int({ min: 100000, max: 999999 }),
-      expireTime: generateExpireTime(minute),
+      expireTime: generateExpireTime(minute)
     });
     return this.getCode(session);
   }
