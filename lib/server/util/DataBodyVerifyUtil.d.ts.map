@@ -1,1 +1,0 @@
-{"version":3,"file":"DataBodyVerifyUtil.d.ts","sourceRoot":"","sources":["../../../src/server/util/DataBodyVerifyUtil.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAE,MAAM,kCAAkC,CAAC;AAGvE,OAAO,EAAE,uBAAuB,EAAE,MAAM,sCAAsC,CAAC;AAE/E,MAAM,CAAC,OAAO,WAAW,EACvB,OAAO,EACP,QAAQ,EACR,KAAK,EACL,UAAU,GACX,EAAE,mBAAmB,GAAG,uBAAuB,CAmF/C;AAED,YAAY,EAAE,uBAAuB,EAAE,CAAC"}

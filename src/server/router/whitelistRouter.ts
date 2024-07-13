@@ -9,7 +9,7 @@ import { DataModuleInterface } from "../interface/dataModuleInterface";
 import GenerateRandomCaptcha from "../util/grcUtil";
 import dataBodyVerifyUtil, {
   DataBodyVerifyInterface,
-} from "../util/DataBodyVerifyUtil";
+} from "../util/dataBodyVerifyUtil";
 
 const koaRouter: KoaRouter = new KoaRouter();
 
