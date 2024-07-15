@@ -1,7 +1,7 @@
 # 全局配置
 [globalConfig]
 # 网站标题
-title = "MineCraft 服务器 - 白名单自助验证"
+title = "Minecraft 服务器 - 白名单自助验证"
 # 提示
 contactContent = "加入QQ群"
 # 群号
