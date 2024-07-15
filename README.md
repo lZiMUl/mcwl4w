@@ -4,6 +4,7 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 它允许玩家通过简单的网页表单提交他们的申请信息，如用户名、邮箱等，这一项目旨在提升服务器管理的效率，同时优化玩家的游戏体验，确保只有符合要求的玩家能够加入服务器。
 
 ## Browser Support
+
 | ![Chrome][chrome-shield] | ![Edge][edge-shield] | ![Firefox][firefox-shield] | ![Safari][safari-shield] | ![Opera][opera-shield] |
 |--------------------------|----------------------|----------------------------|--------------------------|------------------------|
 | Latest ✔                 | Latest ✔             | Latest ✔                   | Latest ✔                 | Latest ✔               |                                                                                                                      |
@@ -36,16 +37,19 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## 功能
+
 - **在线申请白名单**：玩家可以通过网站提交申请信息。
 - **高效管理**：服务器管理员可以轻松管理和审核申请。
 - **优化体验**：确保只有符合要求的玩家能够加入服务器。
 
 ## 预览图
+
 <img src="/assets/image/preview/preview1.png" alt="Logo" width="500" height="*">
 <img src="/assets/image/preview/preview2.png" alt="Logo" width="500" height="*">
 <img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">
 
 ## 安装
+
 1. 克隆仓库
     ```bash
     git clone https://github.com/lZiMUl/mcwl4w.git
@@ -111,7 +115,7 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
     ```bash
     npm run build
     ```
-   
+
 5. 运行项目
     ```bash
     npm run start
@@ -136,24 +140,43 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 如果有任何问题或建议，请联系 [lzimul@lzimul.top](mailto:lzimul@lzimul.top)。
 
 <!-- links -->
+
 [your-project-path]:lZiMUl/mcwl4w
+
 [bilibili-shield]: https://img.shields.io/badge/mcwl4w%20開發者B站-red?logo=bilibili
+
 [bilibili-url]: https://space.bilibili.com/291883246
+
 [contributors-shield]: https://img.shields.io/github/contributors/lZiMUl/mcwl4w.svg?style=flat-square
+
 [contributors-url]: https://github.com/lZiMUl/mcwl4w/graphs/contributors
+
 [forks-shield]: https://img.shields.io/github/forks/lZiMUl/mcwl4w?label=Forks&logo=github
+
 [forks-url]: https://github.com/lZiMUl/mcwl4w/network/members
+
 [stars-shield]: https://img.shields.io/github/stars/lZiMUl/mcwl4w?label=Stars&logo=github
+
 [stars-url]: https://github.com/lZiMUl/mcwl4w/stargazers
+
 [issues-shield]: https://img.shields.io/github/issues/lZiMUl/mcwl4w?label=Issues&logo=github
+
 [issues-url]: https://github.com/lZiMUl/mcwl4w/issues
+
 [license-shield]: https://img.shields.io/github/license/lZiMUl/mcwl4w?label=License&logo=github
+
 [license-url]:https://github.com/lZiMUl/mcwl4w/blob/main/LICENSE
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+
 [linkedin-url]: https://linkedin.com/in/shaojintian
 
 [chrome-shield]: /assets/image/icon/chrome.png
+
 [edge-shield]:/assets/image/icon/edge.png
+
 [firefox-shield]: /assets/image/icon/firefox.png
+
 [safari-shield]: /assets/image/icon/safari.png
+
 [opera-shield]: /assets/image/icon/opera.png
