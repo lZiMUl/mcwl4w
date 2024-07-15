@@ -35,33 +35,37 @@ h1 {
 
 .contact {
   max-width: 200px;
-  margin-top: -20px;
+  max-height: 200px;
   margin-left: 270px;
   box-sizing: border-box;
-  outline: none;
-  border: none;
-  display: inline-block;
+  display: inline-flex;
   min-width: 80px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  background-color: transparent;
-  padding: 0 16px;
   height: 32px;
-  line-height: 32px;
   transition: all 0.3s ease;
-  border-radius: 5px;
   cursor: pointer;
-  color: var(--font-color);
-}
-.contact:hover {
-  background-color: deepskyblue;
-}
-.contact:active {
-  background-color: deepskyblue;
+  min-height: 30px;
 }
 
 a {
-  color: inherit;
+  width: auto;
+  height: auto;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 2px 16px;
+  line-height: 22px;
+  border-radius: 5px;
+  color: var(--font-color);
   text-decoration: none;
+}
+a:hover {
+  background-color: deepskyblue;
+}
+a:active {
+  background-color: deepskyblue;
 }
 
 .app {

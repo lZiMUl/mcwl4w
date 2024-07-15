@@ -10,13 +10,15 @@ import GenerateRandomCaptcha from '../util/grcUtil';
 import dataBodyVerifyUtil, {
   DataBodyVerifyInterface
 } from '../util/dataBodyVerifyUtil';
+import userDataStorage from '../util/userDataStorage';
 
 const koaRouter: KoaRouter = new KoaRouter();
 
 async function addWhitelist(
   rs: Rcon,
   socket: ParameterizedContext,
-  username: string
+  username: string,
+  email: string
 ): Promise<void> {
   const whitelist: string = await rs.send('whitelist list');
   const player: boolean = whitelist.includes(':')
@@ -28,6 +30,10 @@ async function addWhitelist(
     logger.info(chalk.green(`用户: [${username}] 添加到白名单成功!`));
     await rs.send('whitelist reload');
     logger.info(chalk.green(`白名单重载中!`));
+    userDataStorage.Save({
+      username,
+      email
+    });
     socket.body = JSON.stringify({
       code: 200,
       message: '添加白名单成功!',
@@ -38,7 +44,7 @@ async function addWhitelist(
       chalk.yellow(`用户: [${username}] 添加到白名单失败, 查看是否重复添加!`)
     );
     socket.body = JSON.stringify({
-      code: 400,
+      code: 300,
       message: '添加白名单失败, 查看是否已经在白名单中!',
       data: []
     });
@@ -57,20 +63,20 @@ rconService.on('authenticated', (): void => {
       socket.type = 'application/json';
       const dataBody: DataModuleInterface = socket.request
         .body as DataModuleInterface;
-      const { session, username }: DataModuleInterface = dataBody;
+      const { session, username, email }: DataModuleInterface = dataBody;
       const { valid, code, message }: DataBodyVerifyInterface =
         dataBodyVerifyUtil(dataBody);
       if (valid) {
         const { valid, message }: { valid: boolean; message: string } =
           UsernameValidatorHelper.validate(username);
         if (valid) {
-          await addWhitelist(rconService, socket, username);
+          await addWhitelist(rconService, socket, username, email);
         } else {
           logger.warn(
             chalk.yellow(`用户: [${username}] 添加到白名单失败, ${message}!`)
           );
           socket.body = JSON.stringify({
-            code: 410,
+            code: 310,
             message,
             data: []
           });

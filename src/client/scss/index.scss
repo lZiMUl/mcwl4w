@@ -35,22 +35,31 @@ h1 {
 
 .contact {
   max-width: 200px;
-  margin-top: -20px;
+  max-height: 200px;
   margin-left: 270px;
   box-sizing: border-box;
+  display: inline-flex;
+  min-width: 80px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 32px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 30px;
+}
+
+a {
+  width: auto;
+  height: auto;
   outline: none;
   border: none;
-  display: inline-block;
-  min-width: 80px;
-  text-align: center;
   background-color: transparent;
-  padding: 0 16px;
-  height: 32px;
-  line-height: 32px;
-  transition: all 0.3s ease;
+  padding: 2px 16px;
+  line-height: 22px;
   border-radius: 5px;
-  cursor: pointer;
   color: var(--font-color);
+  text-decoration: none;
 
   &:hover {
     background-color: deepskyblue;
@@ -59,11 +68,6 @@ h1 {
   &:active {
     background-color: deepskyblue;
   }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 .app {

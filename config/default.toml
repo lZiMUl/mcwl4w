@@ -1,9 +1,22 @@
+# 全局配置
+[globalConfig]
+# 网站标题
+title = "MineCraft 服务器 - 白名单自助验证"
+# 提示
+contactContent = "加入QQ群"
+# 群号
+contactNumber = "123456789"
+# 链接
+contactLink = "https://qm.qq.com/q/123456789"
+
 # 网站服务配置
 [webService]
 # 主机
 host = "0.0.0.0"
 # 端口
 port = 22
+# 网站会话超时时间 (单位:分钟)
+sessionTimeout = 10
 
 # 邮箱服务配置
 [emailService]
@@ -15,6 +28,8 @@ port = 587
 username = ""
 # 密码
 password = ""
+# 验证码过期时间 (单位:分钟)
+verifyCodeExpireTime = 5
 
 # Rcon服务配置
 [rconService]

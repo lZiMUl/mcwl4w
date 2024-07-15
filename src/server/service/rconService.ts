@@ -1,6 +1,6 @@
 import { Rcon } from 'rcon-client';
 import { getConfig } from '../util/apiUtil';
-import ServiceType from '../type/serviceType';
+import { ServiceType } from '../type/serviceType';
 
 const serviceType: ServiceType = 'rconService';
 

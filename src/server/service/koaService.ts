@@ -6,6 +6,7 @@ import koaBodyparser from 'koa-bodyparser';
 // Import router
 import index from '../router/indexRouter';
 import getSession from '../router/getSessionRouter';
+import getConfigInfo from '../router/getConfigInfoRouter';
 import whitelist, { connectRconService } from '../router/whitelistRouter';
 import sentVerifyCode from '../router/sentVerifyCodeRouter';
 
@@ -23,6 +24,7 @@ koaService.use(
 // Set up the router
 koaService.use(index);
 koaService.use(getSession);
+koaService.use(getConfigInfo);
 koaService.use(whitelist);
 koaService.use(sentVerifyCode);
 

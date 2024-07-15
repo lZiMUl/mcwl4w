@@ -4,8 +4,16 @@ import GenerateRandomCaptcha from '../util/grcUtil';
 import KoaRouter from 'koa-router';
 import { DataModuleInterface } from '../interface/dataModuleInterface';
 import { chalk, logger } from '../helper/helper';
+import { getConfig } from '../util/apiUtil';
+import { ConfigType } from '../type/serviceType';
 
 const koaRouter: KoaRouter = new KoaRouter();
+
+const configType: ConfigType = 'globalConfig';
+const [title, verifyCodeExpireTime]: [string, number] = [
+  getConfig(configType, 'title'),
+  emailService.config.verifyCodeExpireTime
+];
 
 koaRouter.post(
   '/sentVerifyCode',
@@ -19,16 +27,21 @@ koaRouter.post(
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const verifyCode: string = GenerateRandomCaptcha.generate(
       target.session,
-      5
+      verifyCodeExpireTime
     );
 
     try {
       if (emailRegex.test(target.email)) {
+        logger.info(
+          chalk.green(
+            `已向用户 [${target.username} (${target.email})] 发送验证码为 ${verifyCode}`
+          )
+        );
         await emailService.service.sendMail({
-          from: `MineCraft 服务器 <${emailService.config.username}>`,
+          from: `${title} 服务器 <${emailService.config.username}>`,
           to: target.email,
-          subject: 'MineCraft 服务器 - 白名单申请验证码',
-          html: `您好 ${target.username} 玩家, 您的白名单验证码是 [${verifyCode} (5分钟有效)]`
+          subject: `${title} 服务器 - 白名单申请验证码`,
+          html: `您好 ${target.username} 玩家, 您的白名单验证码是 [${verifyCode} (${verifyCodeExpireTime}分钟有效)]`
         });
         logger.info(
           chalk.green(

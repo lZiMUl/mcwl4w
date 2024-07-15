@@ -5,7 +5,7 @@ import koaService, { connectRconService } from './service/koaService';
 import { Command, Option } from 'commander';
 import { getConfig } from './util/apiUtil';
 import { chalk, logger } from './helper/helper';
-import ServiceType from './type/serviceType';
+import { ServiceType } from './type/serviceType';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -28,8 +28,8 @@ const serviceType: ServiceType = 'webService';
 
 // Get host and port
 const [host, port]: Array<string | number> = [
-  program.opts().host ?? getConfig(serviceType, 'host'),
-  program.opts().port ?? getConfig(serviceType, 'port')
+  program.opts().host ?? getConfig(serviceType, 'host') ?? '0.0.0.0',
+  program.opts().port ?? getConfig(serviceType, 'port') ?? '22'
 ];
 
 logger.info(chalk.red(chalk.bold('----------lZiMUl MCWL4W 服务----------')));

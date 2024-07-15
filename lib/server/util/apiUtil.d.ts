@@ -1,8 +1,5 @@
-interface Config {
-    [key: string]: string | number;
-}
-declare function getConfig(index: string, key: string, file?: string): Config | null;
+import ConfigInterface from '../interface/ConfigInterface';
+declare function getConfig<T extends keyof ConfigInterface, K extends keyof ConfigInterface[T]>(index: T, key: K, file?: string): ConfigInterface[T][K];
 declare function generateExpireTime(minute: number): Date;
-export type { Config };
 export { getConfig, generateExpireTime };
 //# sourceMappingURL=apiUtil.d.ts.map

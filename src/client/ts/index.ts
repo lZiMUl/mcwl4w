@@ -1,9 +1,17 @@
 import Alert from './customAlert.js';
 import usernameValidator, { ValidateResult } from './usernameValidator.js';
+import ConfigInterface from './interface/ConfigInterface';
+import DataModuleInterface from './interface/dataModuleInterface';
 
 window.addEventListener('load', async (): Promise<void> => {
   function getValue(id: string): string {
     return (document.getElementById(id) as HTMLInputElement).value;
+  }
+
+  function getNetworkData<T>(path: string): Promise<T> {
+    return new Promise(async callback => {
+      callback(JSON.parse(await (await fetch(path, { method: 'GET' })).text()));
+    });
   }
 
   function showAlert(content: string): void {
@@ -14,9 +22,27 @@ window.addEventListener('load', async (): Promise<void> => {
     });
   }
 
-  const { session } = JSON.parse(
-    await (await fetch('/getSession', { method: 'GET' })).text()
-  );
+  const { session }: DataModuleInterface = await getNetworkData('/getSession');
+
+  const {
+    title,
+    contactContent,
+    contactNumber,
+    contactLink
+  }: ConfigInterface['globalConfig'] =
+    await getNetworkData<ConfigInterface['globalConfig']>('/getConfigInfo');
+
+  document.title = title;
+  const titleElement: HTMLHeadElement = document.getElementById(
+    'title'
+  ) as HTMLHeadElement;
+  const contact: HTMLAnchorElement = document.getElementById(
+    'contact'
+  ) as HTMLAnchorElement;
+
+  titleElement.innerText = title;
+  contact.innerText = `${contactContent} (${contactNumber})`;
+  contact.href = contactLink;
 
   let time: number = 60;
   const emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

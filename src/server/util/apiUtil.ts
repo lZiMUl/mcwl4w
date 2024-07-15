@@ -1,20 +1,20 @@
 import { readFileSync } from 'fs';
 import { parse } from 'toml';
 import absolutePath from './pathUtil';
-
-interface Config {
-  [key: string]: string | number;
-}
+import ConfigInterface from '../interface/ConfigInterface';
 
 // Read configuration data
-function getConfig(index: string, key: string, file?: string): Config | null {
+function getConfig<
+  T extends keyof ConfigInterface,
+  K extends keyof ConfigInterface[T]
+>(index: T, key: K, file?: string): ConfigInterface[T][K] {
   const parseData = parse(
     readFileSync(
       absolutePath(`./config/${file ? file : 'default'}.toml`),
       'utf-8'
     )
   );
-  return Reflect.get(Reflect.get(parseData, index), key) ?? null;
+  return Reflect.get(Reflect.get(parseData, index), key);
 }
 
 function generateExpireTime(minute: number): Date {
@@ -23,5 +23,4 @@ function generateExpireTime(minute: number): Date {
 }
 
 // Export api
-export type { Config };
 export { getConfig, generateExpireTime };

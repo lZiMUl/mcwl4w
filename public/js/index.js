@@ -4,6 +4,11 @@ window.addEventListener('load', async () => {
     function getValue(id) {
         return document.getElementById(id).value;
     }
+    function getNetworkData(path) {
+        return new Promise(async (callback) => {
+            callback(JSON.parse(await (await fetch(path, { method: 'GET' })).text()));
+        });
+    }
     function showAlert(content) {
         new Alert({
             title: document.title,
@@ -11,7 +16,14 @@ window.addEventListener('load', async () => {
             close: '知道了!'
         });
     }
-    const { session } = JSON.parse(await (await fetch('/getSession', { method: 'GET' })).text());
+    const { session } = await getNetworkData('/getSession');
+    const { title, contactContent, contactNumber, contactLink } = await getNetworkData('/getConfigInfo');
+    document.title = title;
+    const titleElement = document.getElementById('title');
+    const contact = document.getElementById('contact');
+    titleElement.innerText = title;
+    contact.innerText = `${contactContent} (${contactNumber})`;
+    contact.href = contactLink;
     let time = 60;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const sentVerifyCode = document.getElementById('sentVerifyCode');
