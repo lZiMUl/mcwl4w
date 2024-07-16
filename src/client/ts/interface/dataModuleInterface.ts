@@ -1,5 +1,5 @@
 interface DataModuleInterface {
-  session: string;
+	session: string;
 }
 
 export default DataModuleInterface;

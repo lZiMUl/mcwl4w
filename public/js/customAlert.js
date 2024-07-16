@@ -1,17 +1,17 @@
-import { navigatorApiVerify } from './apiVerify.js';
+import { navigatorApiVerify } from "./apiVerify.js";
 export default class Alert {
     static list = [];
     frame;
     constructor({ content, title, close }) {
         const [OVERLAY, FRAME, DIV, TITLE, TITLEDIV, CONTENT, CONTENTDIV, DONE] = [
-            this.ce('div'),
-            this.ce('div'),
-            this.ce('div'),
-            this.ce('h3'),
-            this.ce('div'),
-            this.ce('div'),
-            this.ce('div'),
-            this.ce('button')
+            this.ce("div"),
+            this.ce("div"),
+            this.ce("div"),
+            this.ce("h3"),
+            this.ce("div"),
+            this.ce("div"),
+            this.ce("div"),
+            this.ce("button")
         ];
         this.ssa(OVERLAY, `
 			position: fixed;
@@ -76,13 +76,13 @@ export default class Alert {
 			cursor: pointer;
 			transition: background 0.3s ease;
 		`);
-        TITLE.innerText = title ? title : 'Alert';
-        CONTENT.innerHTML = content ? content : '';
+        TITLE.innerText = title ? title : "Alert";
+        CONTENT.innerHTML = content ? content : "";
         if (CONTENT.innerHTML) {
-            const scripts = CONTENT.getElementsByTagName('script');
+            const scripts = CONTENT.getElementsByTagName("script");
             for (let index = 0; index < scripts.length; index++) {
-                const script = this.ce('script');
-                script.type = 'text/javascript';
+                const script = this.ce("script");
+                script.type = "text/javascript";
                 const subScript = scripts[index];
                 if (subScript.src) {
                     script.src = subScript.src;
@@ -93,14 +93,14 @@ export default class Alert {
                 document.head.appendChild(script);
             }
         }
-        DONE.innerText = close ? close : 'Close';
-        DONE.addEventListener('click', () => {
-            FRAME.style.opacity = '0';
-            OVERLAY.style.opacity = '0';
+        DONE.innerText = close ? close : "Close";
+        DONE.addEventListener("click", () => {
+            FRAME.style.opacity = "0";
+            OVERLAY.style.opacity = "0";
             FRAME.remove();
             OVERLAY.remove();
             this.de();
-            new navigatorApiVerify('vibrate', () => navigator.vibrate(200), console.warn);
+            new navigatorApiVerify("vibrate", () => navigator.vibrate(200), console.warn);
         });
         this.ac(TITLEDIV, TITLE);
         this.ac(DIV, TITLEDIV);

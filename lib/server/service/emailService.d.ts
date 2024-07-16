@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 export declare const host: string, port: number, username: string, password: string, verifyCodeExpireTime: number;
 declare const _default: {
     config: {
