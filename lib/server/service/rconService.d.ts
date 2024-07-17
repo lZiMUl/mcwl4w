@@ -1,4 +1,4 @@
-import { Rcon } from "rcon-client";
+import { Rcon } from 'rcon-client';
 
 declare const _default: Rcon;
 export default _default;

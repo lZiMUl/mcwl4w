@@ -1,12 +1,12 @@
-import { UserData } from "../interface/userDataInterface";
+import { UserData } from '../interface/userDataInterface';
 
 declare class UserDataStorage {
-	private static UserDataFilePath;
-	private static CheckFileExists;
+  private static UserDataFilePath;
+  private static CheckFileExists;
 
-	static get Load(): UserData[];
+  static get Load(): UserData[];
 
-	static Save(data: UserData): void;
+  static Save(data: UserData): void;
 }
 
 export default UserDataStorage;
