@@ -23,8 +23,8 @@
   ],
   "homepage": "https://lzimul.com",
   "main": "./build/index.js",
-  "types": "./lib/*",
-  "typings": "./lib/*",
+  "types": "./lib/**/*",
+  "typings": "./lib/**/*",
   "license": "MIT",
   "scripts": {
     "start": "node .",
@@ -86,7 +86,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lZiMUl/mcwl4w.git"
+    "url": "git+https://github.com/lZiMUl/mcwl4w"
   },
   "bugs": {
     "url": "https://github.com/lZiMUl/mcwl4w/issues/",

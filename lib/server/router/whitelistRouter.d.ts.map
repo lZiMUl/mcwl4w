@@ -1,1 +1,1 @@
-{"version":3,"file":"whitelistRouter.d.ts","sourceRoot":"","sources":["../../../src/server/router/whitelistRouter.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,YAAY,CAAC;AA4FnC,wBAAsB,kBAAkB,IAAI,OAAO,CAAC,IAAI,CAAC,CAExD;;AAGD,wBAAkC"}
+{"version":3,"file":"whitelistRouter.d.ts","sourceRoot":"","sources":["../../../src/server/router/whitelistRouter.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,YAAY,CAAC;AA8FnC,wBAAsB,kBAAkB,IAAI,OAAO,CAAC,IAAI,CAAC,CAExD;;AAGD,wBAAkC"}

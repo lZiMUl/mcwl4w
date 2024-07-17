@@ -18,12 +18,12 @@ export default class UsernameValidatorHelper {
         if (!this.allowedCharacters.test(username)) {
             return {
                 valid: false,
-                message: "用户名只能包含字母、数字和下划线。"
+                message: '用户名只能包含字母、数字和下划线。'
             };
         }
         return {
             valid: true,
-            message: "用户名有效。"
+            message: '用户名有效。'
         };
     }
 }
