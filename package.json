@@ -69,7 +69,7 @@
     "@types/koa-bodyparser": "^4.3.12",
     "@types/koa-router": "^7.4.8",
     "@types/koa-static": "^4.0.4",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.14.11",
     "@types/nodemailer": "^6.4.15",
     "@types/semver": "^7.5.8",
     "@types/uuid": "^10.0.0",
