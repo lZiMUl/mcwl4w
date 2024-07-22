@@ -57,7 +57,7 @@
     "log4js": "^6.9.1",
     "nodemailer": "^6.9.14",
     "rcon-client": "^4.2.4",
-    "semver": "^7.6.2",
+    "semver": "^7.6.3",
     "toml": "^3.0.0",
     "tslib": "^2.6.3",
     "uuid": "^10.0.0"
