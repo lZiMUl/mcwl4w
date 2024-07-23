@@ -1,4 +1,6 @@
 /.git/
 /build/
+/public/css/
+/public/js/
 /node_modules/
 /tsconfig.tsbuildinfo
