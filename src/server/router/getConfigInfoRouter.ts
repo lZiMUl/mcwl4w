@@ -3,6 +3,7 @@ import { ParameterizedContext } from 'koa';
 import KoaRouter from 'koa-router';
 import { getConfig } from '../util/apiUtil';
 import { ConfigType } from '../type/serviceType';
+import { JSONStringify } from '../helper/helper';
 
 // Initialize koa-router instance
 const koaRouter: KoaRouter = new KoaRouter();
@@ -22,7 +23,7 @@ koaRouter.get(
   async (socket: ParameterizedContext): Promise<void> => {
     socket.status = 200;
     socket.type = 'application/json';
-    socket.body = JSON.stringify({
+    socket.body = JSONStringify({
       title,
       contactContent,
       contactNumber,

@@ -1,6 +1,5 @@
 interface DataModuleInterface {
-  session: string;
+    session: string;
 }
-
 export default DataModuleInterface;
 //# sourceMappingURL=dataModuleInterface.d.ts.map

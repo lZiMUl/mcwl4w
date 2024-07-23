@@ -1,1 +1,1 @@
-{"version":3,"file":"getConfigInfoRouter.d.ts","sourceRoot":"","sources":["../../../src/server/router/getConfigInfoRouter.ts"],"names":[],"mappings":"AAEA,OAAO,SAAS,MAAM,YAAY,CAAC;;AAgCnC,wBAAkC"}
+{"version":3,"file":"getConfigInfoRouter.d.ts","sourceRoot":"","sources":["../../../src/server/router/getConfigInfoRouter.ts"],"names":[],"mappings":"AAEA,OAAO,SAAS,MAAM,YAAY,CAAC;;AAiCnC,wBAAkC"}

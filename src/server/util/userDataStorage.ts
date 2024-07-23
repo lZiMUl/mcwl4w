@@ -2,6 +2,7 @@ import { existsSync, writeFileSync } from 'node:fs';
 import pathUtil from './pathUtil';
 import { readFileSync } from 'fs';
 import { UserData } from '../interface/userDataInterface';
+import { JSONStringify } from '../helper/helper';
 
 class UserDataStorage {
   private static UserDataFilePath: string = pathUtil('./config/userData.json');
@@ -19,12 +20,12 @@ class UserDataStorage {
   public static Save(data: UserData): void {
     const cacheData: UserData[] = this.Load;
     cacheData.push(data);
-    writeFileSync(UserDataStorage.UserDataFilePath, JSON.stringify(cacheData));
+    writeFileSync(UserDataStorage.UserDataFilePath, JSONStringify(cacheData));
   }
 
   private static CheckFileExists(): void {
     if (!existsSync(UserDataStorage.UserDataFilePath)) {
-      writeFileSync(UserDataStorage.UserDataFilePath, JSON.stringify([]));
+      writeFileSync(UserDataStorage.UserDataFilePath, JSONStringify([]));
     }
   }
 }
