@@ -97,7 +97,7 @@ window.addEventListener('load', async (): Promise<void> => {
     const { valid, message }: ValidateResult =
       usernameValidator.validate(username);
     if (valid) {
-      const data = JSON.parse(
+      const { message } = JSON.parse(
         await (
           await fetch('/whitelist', {
             method: 'POST',
@@ -117,7 +117,7 @@ window.addEventListener('load', async (): Promise<void> => {
           })
         ).text()
       );
-      showAlert(data.message);
+      showAlert(message);
     } else {
       showAlert(message);
     }
