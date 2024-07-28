@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "ESNext"
+    ],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "./src/server",
+    "declarationDir": "./lib/server",
+    "outDir": "./build",
+    "importHelpers": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "./src/server/**/*"
+  ]
+}
