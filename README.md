@@ -99,8 +99,8 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 
 如果有任何问题或建议，请联系 [lZiMUl@lzimul.com](mailto:lzimul@lzimul.com)。
 
-
 #### 以下是默认配置, 配置出现问题, 可以复制过去哦 ;-)
+
    ```toml
     # 全局配置
 [globalConfig]
@@ -144,7 +144,6 @@ port = 25575
 # 密码
 password = ""  
    ```
-
 
 <!-- links -->
 
