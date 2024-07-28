@@ -18,8 +18,8 @@ const program: Command = new Command();
 program.version(localVersion);
 
 // Set the option content
-program.addOption(new Option('-h, --host <string>', 'Custom Web Host'));
-program.addOption(new Option('-p, --port <number>', 'Custom Web Port'));
+program.addOption(new Option('-h, --host <string>', '自定义主机'));
+program.addOption(new Option('-p, --port <number>', '自定义端口'));
 
 // Parse parameters
 program.parse(process.argv);
