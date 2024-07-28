@@ -44,11 +44,11 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 
 ## 预览图
 
-[//]: # (<img src="/assets/image/preview/preview1.png" alt="Logo" width="500" height="*">)
+<img src="/assets/image/preview/preview1.png" alt="Logo" width="500" height="*">
 
-[//]: # (<img src="/assets/image/preview/preview2.png" alt="Logo" width="500" height="*">)
+<img src="/assets/image/preview/preview2.png" alt="Logo" width="500" height="*">
 
-[//]: # (<img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">)
+<img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">
 
 ## 安装
 
