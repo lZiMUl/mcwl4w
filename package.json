@@ -35,7 +35,9 @@
     "build:server": "npx tsc -p ./tsconfig.server.json",
     "typedoc:client": "typedoc --options ./typedoc.client.json",
     "typedoc:server": "typedoc --options ./typedoc.server.json",
-    "dev": "npm run build && npm run start"
+    "dev": "npm run build && npm run start",
+    "init": "npm i --legacy-peer-deps",
+    "init:china": "npm i --legacy-peer-deps --register=https://registry.npmmirror.com"
   },
   "keywords": [
     "lZiMUl",
@@ -90,7 +92,7 @@
   },
   "bugs": {
     "url": "https://github.com/lZiMUl/mcwl4w/issues/",
-    "email": "lzimul@lzimul.com"
+    "email": "lZiMUl@lzimul.com"
   },
   "publishConfig": {
     "tag": "latest"
