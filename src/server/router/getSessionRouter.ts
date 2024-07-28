@@ -1,7 +1,7 @@
 // Import basic dependencies
 import { ParameterizedContext } from 'koa';
 import KoaRouter from 'koa-router';
-import { uuidV7 } from '../helper/helper';
+import { JSONStringify, uuidV7 } from '../helper/helper';
 import { generateExpireTime } from '../util/apiUtil';
 
 // Initialize koa-router instance
@@ -13,7 +13,7 @@ koaRouter.get(
   async (socket: ParameterizedContext): Promise<void> => {
     socket.status = 200;
     socket.type = 'application/json';
-    socket.body = JSON.stringify({
+    socket.body = JSONStringify({
       session: uuidV7(),
       expireTime: generateExpireTime(20)
     });

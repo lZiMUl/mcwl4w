@@ -3,7 +3,7 @@ import KoaRouter from 'koa-router';
 import { Rcon } from 'rcon-client';
 
 import rconService from '../service/rconService';
-import { chalk, logger } from '../helper/helper';
+import { chalk, JSONStringify, logger } from '../helper/helper';
 import UsernameValidatorHelper from '../helper/usernameValidatorHelper';
 import { DataModuleInterface } from '../interface/dataModuleInterface';
 import GenerateRandomCaptcha from '../util/grcUtil';
@@ -34,7 +34,7 @@ async function addWhitelist(
       username,
       email
     });
-    socket.body = JSON.stringify({
+    socket.body = JSONStringify({
       code: 200,
       message: '添加白名单成功!',
       data: []
@@ -43,7 +43,7 @@ async function addWhitelist(
     logger.warn(
       chalk.yellow(`用户: [${username}] 添加到白名单失败, 查看是否重复添加!`)
     );
-    socket.body = JSON.stringify({
+    socket.body = JSONStringify({
       code: 300,
       message: '添加白名单失败, 查看是否已经在白名单中!',
       data: []
@@ -75,7 +75,7 @@ rconService.on('authenticated', (): void => {
           logger.warn(
             chalk.yellow(`用户: [${username}] 添加到白名单失败, ${message}!`)
           );
-          socket.body = JSON.stringify({
+          socket.body = JSONStringify({
             code: 310,
             message,
             data: []
@@ -83,7 +83,7 @@ rconService.on('authenticated', (): void => {
         }
         GenerateRandomCaptcha.cleanCode(session);
       } else {
-        socket.body = JSON.stringify({
+        socket.body = JSONStringify({
           code,
           message,
           data: []

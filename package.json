@@ -4,20 +4,20 @@
   "version": "1.0.0",
   "author": {
     "name": "lZiMUl",
-    "email": "lzimul@lzimul.com",
+    "email": "lZiMUl@lzimul.com",
     "url": "https://lzimul.com"
   },
   "contributors": [
     {
       "name": "lZiMUl",
-      "email": "lzimul@lzimul.com",
+      "email": "lZiMUl@lzimul.com",
       "url": "https://lzimul.com"
     }
   ],
   "maintainers": [
     {
       "name": "lZiMUl",
-      "email": "lzimul@lzimul.com",
+      "email": "lZiMUl@lzimul.com",
       "url": "https://lzimul.com"
     }
   ],
@@ -35,7 +35,9 @@
     "build:server": "npx tsc -p ./tsconfig.server.json",
     "typedoc:client": "typedoc --options ./typedoc.client.json",
     "typedoc:server": "typedoc --options ./typedoc.server.json",
-    "dev": "npm run build && npm run start"
+    "dev": "npm run build && npm run start",
+    "init": "npm i --legacy-peer-deps",
+    "init:china": "npm i --legacy-peer-deps --register=https://registry.npmmirror.com"
   },
   "keywords": [
     "lZiMUl",
@@ -82,7 +84,7 @@
     "sass": "^1.77.8",
     "typedoc": "^0.26.4",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.16.1"
+    "typescript-eslint": "^7.17.0"
   },
   "repository": {
     "type": "git",
@@ -90,7 +92,7 @@
   },
   "bugs": {
     "url": "https://github.com/lZiMUl/mcwl4w/issues/",
-    "email": "lzimul@lzimul.com"
+    "email": "lZiMUl@lzimul.com"
   },
   "publishConfig": {
     "tag": "latest"
