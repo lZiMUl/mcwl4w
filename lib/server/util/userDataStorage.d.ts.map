@@ -1,0 +1,1 @@
+{"version":3,"file":"userDataStorage.d.ts","sourceRoot":"","sources":["../../../src/server/util/userDataStorage.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,QAAQ,EAAE,MAAM,gCAAgC,CAAC;AAG1D,cAAM,eAAe;IACnB,OAAO,CAAC,MAAM,CAAC,gBAAgB,CAA8C;IAE7E,WAAkB,IAAI,IAAI,QAAQ,EAAE,CAQnC;WAEa,IAAI,CAAC,IAAI,EAAE,QAAQ,GAAG,IAAI;IAMxC,OAAO,CAAC,MAAM,CAAC,eAAe;CAK/B;AAED,eAAe,eAAe,CAAC"}
