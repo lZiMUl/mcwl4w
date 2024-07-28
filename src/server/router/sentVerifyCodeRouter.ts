@@ -3,7 +3,7 @@ import emailService from '../service/emailService';
 import GenerateRandomCaptcha from '../util/grcUtil';
 import KoaRouter from 'koa-router';
 import { DataModuleInterface } from '../interface/dataModuleInterface';
-import { chalk, logger } from '../helper/helper';
+import { chalk, JSONStringify, logger } from '../helper/helper';
 import { getConfig } from '../util/apiUtil';
 import { ConfigType } from '../type/serviceType';
 
@@ -43,7 +43,7 @@ koaRouter.post(
             `已向用户 [${target.username} (${target.email})] 发送验证码为 ${verifyCode}`
           )
         );
-        socket.body = JSON.stringify({
+        socket.body = JSONStringify({
           status: true,
           message: '验证码已发送'
         });
@@ -53,14 +53,14 @@ koaRouter.post(
             `用户 [${target.username} (${target.email})] 邮箱地址不合法`
           )
         );
-        socket.body = JSON.stringify({
+        socket.body = JSONStringify({
           status: false,
           message: '邮箱地址不合法'
         });
       }
     } catch (error) {
       logger.error(chalk.red(`邮箱服务配置错误 ${(error as Error).message}`));
-      socket.body = JSON.stringify({
+      socket.body = JSONStringify({
         status: false,
         message: '邮箱服务配置错误'
       });

@@ -45,78 +45,38 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 ## 预览图
 
 <img src="/assets/image/preview/preview1.png" alt="Logo" width="500" height="*">
+
 <img src="/assets/image/preview/preview2.png" alt="Logo" width="500" height="*">
+
 <img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">
 
 ## 安装
 
-1. 克隆仓库
+1. **下载项目到本地**
     ```bash
-    git clone https://github.com/lZiMUl/mcwl4w.git
+    git clone https://github.com/lZiMUl/mcwl4w.git && cd mcwl4w
     ```
 
-2. 安装依赖
-    ```bash
-    cd mcwl4w
-    npm i --legacy-peer-deps
+2. **项目初始化**
+   ```bash
+   # 对于国外网络环境
+   npm run init
+   # 对于国内网络环境
+   npm run init:china
     ```
 
-3. 更改项目配置文件
+3. **更改项目配置文件**
    ```text
    进入项目的 config 文件夹
    修改 default.toml 里面的配置项
    ```
-   以下是默认配置, 配置出现问题, 可以复制过去哦 ;-)
-   ````toml
-   # 全局配置
-   [globalConfig]
-   # 网站标题
-   title = "Minecraft 服务器 - 白名单自助验证"
-   # 提示
-   contactContent = "加入QQ群"
-   # 群号
-   contactNumber = "123456789"
-   # 链接
-   contactLink = "https://qm.qq.com/q/123456789"
-   
-   # 网站服务配置
-   [webService]
-   # 主机
-   host = "0.0.0.0"
-   # 端口
-   port = 22
-   # 网站会话超时时间 (单位:分钟)
-   sessionTimeout = 10
-   
-   # 邮箱服务配置
-   [emailService]
-   # 主机
-   host = "smtp.gmail.com"
-   # 端口
-   port = 587
-   # 用户
-   username = ""
-   # 密码
-   password = ""
-   # 验证码过期时间 (单位:分钟)
-   verifyCodeExpireTime = 5
-   
-   # Rcon服务配置
-   [rconService]
-   # 主机
-   host = "127.0.0.1"
-   # 端口
-   port = 25575
-   # 密码
-   password = ""  
-   ````
 
-4. 编译项目
+4. **编译项目**
     ```bash
     npm run build
     ```
 
-5. 运行项目
+5. **运行项目**
     ```bash
     npm run start
     ```
@@ -137,7 +97,54 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 
 ## 联系
 
-如果有任何问题或建议，请联系 [lzimul@lzimul.top](mailto:lzimul@lzimul.top)。
+如果有任何问题或建议，请联系 [lZiMUl@lzimul.com](mailto:lzimul@lzimul.com)。
+
+
+#### 以下是默认配置, 配置出现问题, 可以复制过去哦 ;-)
+   ```toml
+    # 全局配置
+[globalConfig]
+# 网站标题
+title = "Minecraft 服务器 - 白名单自助验证"
+# 提示
+contactContent = "加入QQ群"
+# 群号
+contactNumber = "123456789"
+# 链接
+contactLink = "https://qm.qq.com/q/123456789"
+
+# 网站服务配置
+[webService]
+# 主机
+host = "0.0.0.0"
+# 端口
+port = 22
+# 网站会话超时时间 (单位:分钟)
+sessionTimeout = 10
+
+# 邮箱服务配置
+[emailService]
+# 主机
+host = "smtp.gmail.com"
+# 端口
+port = 587
+# 用户
+username = ""
+# 密码
+password = ""
+# 验证码过期时间 (单位:分钟)
+verifyCodeExpireTime = 5
+
+# Rcon服务配置
+[rconService]
+# 主机
+host = "127.0.0.1"
+# 端口
+port = 25575
+# 密码
+password = ""  
+   ```
+
 
 <!-- links -->
 

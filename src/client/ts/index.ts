@@ -64,11 +64,15 @@ window.addEventListener('load', async (): Promise<void> => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        session,
-        username: getValue('username'),
-        email
-      })
+      body: JSON.stringify(
+        {
+          session,
+          username: getValue('username'),
+          email
+        },
+        null,
+        2
+      )
     }).then(async (data: Response): Promise<void> => {
       const { status, message } = JSON.parse(await data.text());
       showAlert(message);
@@ -93,23 +97,27 @@ window.addEventListener('load', async (): Promise<void> => {
     const { valid, message }: ValidateResult =
       usernameValidator.validate(username);
     if (valid) {
-      const data = JSON.parse(
+      const { message } = JSON.parse(
         await (
           await fetch('/whitelist', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-              session,
-              username,
-              email,
-              verifyCode
-            })
+            body: JSON.stringify(
+              {
+                session,
+                username,
+                email,
+                verifyCode
+              },
+              null,
+              2
+            )
           })
         ).text()
       );
-      showAlert(data.message);
+      showAlert(message);
     } else {
       showAlert(message);
     }

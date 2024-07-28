@@ -6,4 +6,8 @@ import { v7 as uuidV7 } from 'uuid';
 const logger: Logger = log4js.getLogger();
 logger.level = 'info';
 
-export { logger, chalk, uuidV7 };
+function JSONStringify<T extends object>(data: T): string {
+  return JSON.stringify(data, null, 2);
+}
+
+export { logger, chalk, uuidV7, JSONStringify };

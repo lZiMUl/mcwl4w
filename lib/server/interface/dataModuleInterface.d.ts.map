@@ -1,1 +1,0 @@
-{"version":3,"file":"dataModuleInterface.d.ts","sourceRoot":"","sources":["../../../src/server/interface/dataModuleInterface.ts"],"names":[],"mappings":"AAAA,UAAU,mBAAmB;IAC3B,OAAO,EAAE,MAAM,CAAC;IAChB,QAAQ,EAAE,MAAM,CAAC;IACjB,KAAK,EAAE,MAAM,CAAC;IACd,UAAU,EAAE,MAAM,CAAC;CACpB;AAED,YAAY,EAAE,mBAAmB,EAAE,CAAC"}
