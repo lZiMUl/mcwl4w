@@ -56,42 +56,49 @@ rconService.on('connect', () =>
 );
 rconService.on('authenticated', (): void => {
   logger.info(chalk.green('Rcon 服务认证成功\n'));
-  koaRouter.post(
-    '/whitelist',
-    async (socket: ParameterizedContext): Promise<void> => {
-      socket.status = 200;
-      socket.type = 'application/json';
-      const dataBody: DataModuleInterface = socket.request
-        .body as DataModuleInterface;
-      const { session, username, email }: DataModuleInterface = dataBody;
-      const { valid, code, message }: DataBodyVerifyInterface =
-        dataBodyVerifyUtil(dataBody);
+});
+rconService.on('error', () => {
+  logger.warn(chalk.yellow('Rcon 服务连接错误'));
+});
+rconService.on('end', (): void => {
+  logger.error(chalk.red('Rcon 服务已关闭'));
+});
+
+koaRouter.post(
+  '/whitelist',
+  async (socket: ParameterizedContext): Promise<void> => {
+    socket.status = 200;
+    socket.type = 'application/json';
+    const dataBody: DataModuleInterface = socket.request
+      .body as DataModuleInterface;
+    const { session, username, email }: DataModuleInterface = dataBody;
+    const { valid, code, message }: DataBodyVerifyInterface =
+      dataBodyVerifyUtil(dataBody);
+    if (valid) {
+      const { valid, message }: { valid: boolean; message: string } =
+        UsernameValidatorHelper.validate(username);
       if (valid) {
-        const { valid, message }: { valid: boolean; message: string } =
-          UsernameValidatorHelper.validate(username);
-        if (valid) {
-          await addWhitelist(rconService, socket, username, email);
-        } else {
-          logger.warn(
-            chalk.yellow(`用户: [${username}] 添加到白名单失败, ${message}!`)
-          );
-          socket.body = JSONStringify({
-            code: 310,
-            message,
-            data: []
-          });
-        }
-        GenerateRandomCaptcha.cleanCode(session);
+        await addWhitelist(rconService, socket, username, email);
       } else {
+        logger.warn(
+          chalk.yellow(`用户: [${username}] 添加到白名单失败, ${message}!`)
+        );
         socket.body = JSONStringify({
-          code,
+          code: 310,
           message,
           data: []
         });
       }
+      GenerateRandomCaptcha.cleanCode(session);
+    } else {
+      socket.body = JSONStringify({
+        code,
+        message,
+        data: []
+      });
     }
-  );
-});
+  }
+);
 
 export async function connectRconService(): Promise<void> {
   await rconService.connect();
