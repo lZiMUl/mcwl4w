@@ -123,3 +123,6 @@ window.addEventListener('load', async (): Promise<void> => {
     }
   });
 });
+
+window.addEventListener('error', () => location.reload())
+window.addEventListener('ended', () => location.reload())
