@@ -57,12 +57,12 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
     git clone https://github.com/lZiMUl/mcwl4w.git && cd mcwl4w
     ```
 
-2. **项目初始化**
+2. **项目依赖安装**
    ```bash
    # 对于国外网络环境
-   npm run init
+   npm run install
    # 对于国内网络环境
-   npm run init:china
+   npm run install:china
     ```
 
 3. **更改项目配置文件**
@@ -97,7 +97,7 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 
 ## 联系
 
-如果有任何问题或建议，请联系 [lZiMUl@lzimul.com](mailto:lzimul@lzimul.com)。
+如果有任何问题或建议，请联系 [lZiMUl@lzimul.com](mailto:lZiMUl@lzimul.com)。
 
 #### 以下是默认配置, 配置出现问题, 可以复制过去哦 ;-)
 
