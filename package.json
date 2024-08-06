@@ -1,7 +1,7 @@
 {
   "name": "mcwl4w",
   "description": "Minecraft self-service whitelisting service for web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "lZiMUl",
     "email": "lZiMUl@lzimul.com",
@@ -36,8 +36,10 @@
     "typedoc:client": "typedoc --options ./typedoc.client.json",
     "typedoc:server": "typedoc --options ./typedoc.server.json",
     "dev": "npm run build && npm run start",
-    "init": "npm i --legacy-peer-deps",
-    "init:china": "npm i --legacy-peer-deps --register=https://registry.npmmirror.com"
+    "install": "npm install --legacy-peer-deps --loglevel verbose",
+    "install:china": "npm install --legacy-peer-deps --register=https://registry.npmmirror.com --loglevel=verbose",
+    "update": "npm update --legacy-peer-deps --loglevel verbose",
+    "update:china": "npm update --legacy-peer-deps --register=https://registry.npmmirror.com --loglevel=verbose"
   },
   "keywords": [
     "lZiMUl",
@@ -49,7 +51,7 @@
   ],
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "chalk": "^4.1.2",
     "commander": "^12.1.0",
     "koa": "^2.15.3",
@@ -66,25 +68,26 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.7.0",
+    "@eslint/js": "^9.8.0",
     "@types/koa": "^2.15.0",
     "@types/koa-bodyparser": "^4.3.12",
     "@types/koa-router": "^7.4.8",
     "@types/koa-static": "^4.0.4",
-    "@types/node": "^20.14.11",
+    "@types/node": "^22.1.0",
     "@types/nodemailer": "^6.4.15",
     "@types/semver": "^7.5.8",
     "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.17.0",
-    "eslint": "^9.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+    "@typescript-eslint/parser": "^8.0.1",
+    "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
-    "globals": "^15.8.0",
+    "globals": "^15.9.0",
+    "npm-check-updates": "^17.0.3",
     "prettier": "^3.3.3",
     "sass": "^1.77.8",
     "typedoc": "^0.26.5",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^7.17.0"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.1"
   },
   "repository": {
     "type": "git",
