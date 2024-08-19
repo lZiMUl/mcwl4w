@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { parse } from 'toml';
 import absolutePath from './pathUtil';
-import ConfigInterface from '../interface/ConfigInterface';
+import ConfigInterface from '../interface/configInterface';
 
 // Read configuration data
 function getConfig<
