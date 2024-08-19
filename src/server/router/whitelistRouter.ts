@@ -11,6 +11,8 @@ import dataBodyVerifyUtil, {
   DataBodyVerifyInterface
 } from '../util/dataBodyVerifyUtil';
 import userDataStorage from '../util/userDataStorage';
+import { getConfig } from '../util/apiUtil';
+import { ConfigType } from '../type/serviceType';
 
 const koaRouter: KoaRouter = new KoaRouter();
 
@@ -74,6 +76,17 @@ koaRouter.post(
     const { session, username, email }: DataModuleInterface = dataBody;
     const { valid, code, message }: DataBodyVerifyInterface =
       dataBodyVerifyUtil(dataBody);
+    const configType: ConfigType = 'globalConfig';
+    if (getConfig(configType, 'debugMode') as boolean)
+      logger.debug(`
+    [DataBody]: ${dataBody}
+    [Session]: ${session}
+    [Username]: ${username}
+    [Email]: ${email}
+    [Valid]: ${valid}
+    [Code]: ${code}
+    [Message]: ${message}
+    `);
     if (valid) {
       const { valid, message }: { valid: boolean; message: string } =
         UsernameValidatorHelper.validate(username);
