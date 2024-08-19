@@ -1,6 +1,5 @@
-:root {
-  --font-color: white;
-}
+$font-color: white;
+
 
 html, body {
   height: 100%;
@@ -23,7 +22,7 @@ body {
 
 header {
   background-color: dodgerblue;
-  color: white;
+  color: var($font-color);
   padding: 15px;
   text-align: center;
 }
@@ -111,7 +110,7 @@ input[type="number"] {
   padding: 12px;
   margin-left: 10px;
   margin-bottom: 10px;
-  color: var(--font-color);
+  color: var($font-color);
   background-color: transparent;
   border-top: none;
   border-left: none;
@@ -144,7 +143,7 @@ input[type="number"] {
 
 button {
   background-image: linear-gradient(to right, dodgerblue, deepskyblue);
-  color: var(--font-color);
+  color: var($font-color);
   padding: 14px 40px;
   border: none;
   border-radius: 10px;

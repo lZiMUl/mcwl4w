@@ -4,6 +4,7 @@ interface ConfigInterface {
         contactContent: string;
         contactNumber: string;
         contactLink: string;
+        debugMode: boolean;
     };
     webService: {
         host: string;
@@ -24,4 +25,4 @@ interface ConfigInterface {
     };
 }
 export default ConfigInterface;
-//# sourceMappingURL=ConfigInterface.d.ts.map
+//# sourceMappingURL=configInterface.d.ts.map

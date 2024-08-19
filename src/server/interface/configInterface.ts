@@ -4,12 +4,15 @@ interface ConfigInterface {
     contactContent: string;
     contactNumber: string;
     contactLink: string;
+    debugMode: boolean;
   };
+
   webService: {
     host: string;
     port: number;
     sessionTimeout: number;
   };
+
   emailService: {
     host: string;
     port: number;
@@ -17,6 +20,7 @@ interface ConfigInterface {
     password: string;
     verifyCodeExpireTime: number;
   };
+
   rconService: {
     host: string;
     port: number;
@@ -25,4 +29,3 @@ interface ConfigInterface {
 }
 
 export default ConfigInterface;
-//# sourceMappingURL=ConfigInterface.d.ts.map
