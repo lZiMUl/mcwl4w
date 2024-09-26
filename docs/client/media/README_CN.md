@@ -1,6 +1,6 @@
 # mcwl4w
 
-mcwl4w is a project designed to provide a convenient whitelist application for Minecraft servers through an online website. It allows players to submit their application information, such as username and email, via a simple web form. This project aims to enhance server management efficiency while optimizing the gaming experience for players, ensuring that only eligible players can join the server.
+mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名单申请的项目, 它允许玩家通过简单的网页表单提交他们的申请信息，如用户名、邮箱等，这一项目旨在提升服务器管理的效率，同时优化玩家的游戏体验，确保只有符合要求的玩家能够加入服务器。
 
 ## Browser Support
 
@@ -18,12 +18,12 @@ mcwl4w is a project designed to provide a convenient whitelist application for M
 <h3 align="center">mcwl4w</h3>
   <p align="center">
     <br />
-    <a href="https://github.com/lZiMUl/mcwl4w"><strong>Explore the documentation for this project »</strong></a>
+    <a href="https://github.com/lZiMUl/mcwl4w"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lZiMUl/mcwl4w/issues">Report Bugs</a>
+    <a href="https://github.com/lZiMUl/mcwl4w/issues">报告Bug</a>
     ·
-    <a href="https://github.com/lZiMUl/mcwl4w/issues">Propose New Features</a>
+    <a href="https://github.com/lZiMUl/mcwl4w/issues">提出新特性</a>
   </p>
 </div>
 
@@ -35,15 +35,13 @@ mcwl4w is a project designed to provide a convenient whitelist application for M
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-## [前往中文 README](./README_CN.md)
+## 功能
 
-## Features
+- **在线申请白名单**：玩家可以通过网站提交申请信息。
+- **高效管理**：服务器管理员可以轻松管理和审核申请。
+- **优化体验**：确保只有符合要求的玩家能够加入服务器。
 
-- **Online Whitelist Application**：Players can submit their application information through the website.。
-- **Efficient Management**：Server administrators can easily manage and review applications.
-- **Optimized Experience**：Ensures that only eligible players can join the server.
-
-## Preview Images
+## 预览图
 
 <img src="/assets/image/preview/preview1.png" alt="Logo" width="500" height="*">
 
@@ -51,105 +49,106 @@ mcwl4w is a project designed to provide a convenient whitelist application for M
 
 <img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">
 
-## Installation
+## 安装
 
-1. **Download the project locally**
+1. **下载项目到本地**
     ```bash
     git clone https://github.com/lZiMUl/mcwl4w.git && cd mcwl4w
     ```
 
-2. **Install project dependencies**
+2. **项目依赖安装**
    ```bash
-   # For foreign network environments
+   # 对于国外网络环境
    npm run install
-   # For domestic network environments
+   # 对于国内网络环境
    npm run install:china
     ```
 
-3. **Modify the project configuration file**
+3. **更改项目配置文件**
    ```text
-   Enter the project's config folder
-   Modify the configuration items in default.toml
+   进入项目的 config 文件夹
+   修改 default.toml 里面的配置项
    ```
 
-4. **Compile the project**
+4. **编译项目**
     ```bash
     npm run build
     ```
 
-5. **Run the project**
+5. **运行项目**
     ```bash
     npm run start
     ```
 
-## Usage
-1. Visit the homepage of the website.
-2. Fill out and submit the whitelist application form.
-3. The administrator reviews the application and updates the whitelist.
+## 使用
 
-## Contribution
-Contributions in any form are welcome! Please fork this project and submit a pull request.
+1. 访问网站首页。
+2. 填写并提交白名单申请表单。
+3. 管理员审核申请并更新白名单。
 
-## License
+## 贡献
 
-This project is open-sourced under the MIT License.
+欢迎任何形式的贡献！请 fork 本项目并提交 pull request。
 
-## Contact
+## 许可证
 
-If you have any questions or suggestions, please contact [lZiMUl@lzimul.com](mailto:lZiMUl@lzimul.com)。
+本项目基于 MIT 许可证开源。
 
-#### Below is the default configuration. If you encounter any configuration issues, you can copy and paste it here ;-)
+## 联系
+
+如果有任何问题或建议，请联系 [lZiMUl@lzimul.com](mailto:lZiMUl@lzimul.com)。
+
+#### 以下是默认配置, 配置出现问题, 可以复制过去哦 ;-)
 
    ```toml
-# Global Configuration
+    # 全局配置
 [globalConfig]
-# Website Title
-title = "Minecraft Server - Whitelist Self-Verification"
-# Contact Prompt
-contactContent = "Join Discord Group"
-# Group Number
+# 网站标题
+title = "Minecraft 服务器 - 白名单自助验证"
+# 提示
+contactContent = "加入QQ群"
+# 群号
 contactNumber = "123456789"
-# Link
-contactLink = "https://discord.com/"
+# 链接
+contactLink = "https://qm.qq.com/q/123456789"
 
-# Web Service Configuration
+# 网站服务配置
 [webService]
-# Host
+# 主机
 host = "0.0.0.0"
-# Port
+# 端口
 port = 80
-# Website session timeout (unit: minutes)
+# 网站会话超时时间 (单位:分钟)
 sessionTimeout = 10
 
-# Email Service Configuration
+# 邮箱服务配置
 [emailService]
-# Host
+# 主机
 host = "smtp.gmail.com"
-# Port
+# 端口
 port = 587
-# User
+# 用户
 username = ""
-# Password
+# 密码
 password = ""
-# Verification code expiration time (unit: minutes)
+# 验证码过期时间 (单位:分钟)
 verifyCodeExpireTime = 5
 
-# Rcon Service Configuration
+# Rcon服务配置
 [rconService]
-# Host
+# 主机
 host = "127.0.0.1"
-# Port
+# 端口
 port = 25575
-# Password
-password = ""
-
+# 密码
+password = ""  
    ```
 
 <!-- links -->
 
 [your-project-path]:lZiMUl/mcwl4w
 
-[bilibili-shield]: https://img.shields.io/badge/mcwl4w%20Developer%20Bilibili-red?logo=bilibili
+[bilibili-shield]: https://img.shields.io/badge/mcwl4w%20開發者B站-red?logo=bilibili
 
 [bilibili-url]: https://space.bilibili.com/291883246
 

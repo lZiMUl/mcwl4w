@@ -4,18 +4,16 @@ import { ServiceType } from '../type/serviceType';
 
 const serviceType: ServiceType = 'emailService';
 
-export const [host, port, username, password, verifyCodeExpireTime]: [
+export const [host, port, username, password]: [
   string,
   number,
   string,
-  string,
-  number
+  string
 ] = [
   getConfig(serviceType, 'host') ?? '127.0.0.1',
   getConfig(serviceType, 'port') ?? 587,
   getConfig(serviceType, 'username') ?? '',
-  getConfig(serviceType, 'password') ?? '',
-  getConfig(serviceType, 'verifyCodeExpireTime') ?? 5
+  getConfig(serviceType, 'password') ?? ''
 ];
 
 export default {
@@ -24,7 +22,7 @@ export default {
     port,
     username,
     password,
-    verifyCodeExpireTime
+    verifyCodeExpireTime: getConfig(serviceType, 'verifyCodeExpireTime') ?? 5
   },
   service: nodemailer.createTransport({
     host,

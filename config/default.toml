@@ -1,43 +1,41 @@
-# 全局配置
+# Global Configuration
 [globalConfig]
-# 网站标题
-title = "Minecraft 服务器 - 白名单自助验证"
-# 提示
-contactContent = "加入QQ群"
-# 群号
+# Website Title
+title = "Minecraft Server - Whitelist Self-Verification"
+# Contact Prompt
+contactContent = "Join QQ Group"
+# Group Number
 contactNumber = "123456789"
-# 链接
+# Link
 contactLink = "https://qm.qq.com/q/123456789"
-# 调试模式
-debugMode = false
 
-# 网站服务配置
+# Web Service Configuration
 [webService]
-# 主机
+# Host
 host = "0.0.0.0"
-# 端口
+# Port
 port = 80
-# 网站会话超时时间 (单位:分钟)
+# Website session timeout (unit: minutes)
 sessionTimeout = 10
 
-# 邮箱服务配置
+# Email Service Configuration
 [emailService]
-# 主机
+# Host
 host = "smtp.gmail.com"
-# 端口
+# Port
 port = 587
-# 用户
+# User
 username = ""
-# 密码
+# Password
 password = ""
-# 验证码过期时间 (单位:分钟)
+# Verification code expiration time (unit: minutes)
 verifyCodeExpireTime = 5
 
-# Rcon服务配置
+# Rcon Service Configuration
 [rconService]
-# 主机
+# Host
 host = "127.0.0.1"
-# 端口
+# Port
 port = 25575
-# 密码
+# Password
 password = ""

@@ -10,13 +10,6 @@ const koaRouter: KoaRouter = new KoaRouter();
 
 const configType: ConfigType = 'globalConfig';
 
-const [title, contactContent, contactNumber, contactLink]: Array<string> = [
-  getConfig(configType, 'title'),
-  getConfig(configType, 'contactContent'),
-  getConfig(configType, 'contactNumber'),
-  getConfig(configType, 'contactLink')
-];
-
 // Create router path
 koaRouter.get(
   '/getConfigInfo',
@@ -24,10 +17,10 @@ koaRouter.get(
     socket.status = 200;
     socket.type = 'application/json';
     socket.body = JSONStringify({
-      title,
-      contactContent,
-      contactNumber,
-      contactLink
+      title: getConfig(configType, 'title'),
+      contactContent: getConfig(configType, 'contactContent'),
+      contactNumber: getConfig(configType, 'contactNumber'),
+      contactLink: getConfig(configType, 'contactLink')
     });
   }
 );
