@@ -4,13 +4,13 @@ import { readFileSync } from 'fs';
 import { UserData } from '../interface/userDataInterface';
 import { JSONStringify } from '../helper/helper';
 
-class UserDataStorage {
+class UserDataStorageUtil {
   private static UserDataFilePath: string = pathUtil('./config/userData.json');
 
   public static get Load(): UserData[] {
     this.CheckFileExists();
     return JSON.parse(
-      readFileSync(UserDataStorage.UserDataFilePath, {
+      readFileSync(UserDataStorageUtil.UserDataFilePath, {
         flag: 'r',
         encoding: 'utf-8'
       })
@@ -20,14 +20,17 @@ class UserDataStorage {
   public static Save(data: UserData): void {
     const cacheData: UserData[] = this.Load;
     cacheData.push(data);
-    writeFileSync(UserDataStorage.UserDataFilePath, JSONStringify(cacheData));
+    writeFileSync(
+      UserDataStorageUtil.UserDataFilePath,
+      JSONStringify(cacheData)
+    );
   }
 
   private static CheckFileExists(): void {
-    if (!existsSync(UserDataStorage.UserDataFilePath)) {
-      writeFileSync(UserDataStorage.UserDataFilePath, JSONStringify([]));
+    if (!existsSync(UserDataStorageUtil.UserDataFilePath)) {
+      writeFileSync(UserDataStorageUtil.UserDataFilePath, JSONStringify([]));
     }
   }
 }
 
-export default UserDataStorage;
+export default UserDataStorageUtil;

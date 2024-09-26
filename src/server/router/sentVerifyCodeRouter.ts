@@ -16,7 +16,7 @@ const [title, verifyCodeExpireTime]: [string, number] = [
 ];
 
 koaRouter.post(
-  '/sentVerifyCode',
+  '/sendVerifyCode',
   async (socket: ParameterizedContext): Promise<void> => {
     socket.status = 200;
     socket.type = 'application/json';
@@ -33,36 +33,40 @@ koaRouter.post(
     try {
       if (emailRegex.test(target.email)) {
         await emailService.service.sendMail({
-          from: `${title} 服务器 <${emailService.config.username}>`,
+          from: `${title} Server <${emailService.config.username}>`,
           to: target.email,
-          subject: `${title} 服务器 - 白名单申请验证码`,
-          html: `您好 ${target.username} 玩家, 您的白名单验证码是 [${verifyCode} (${verifyCodeExpireTime}分钟有效)]`
+          subject: `${title} Server - Whitelist Application Verification Code`,
+          html: `Hello ${target.username} player, your whitelist verification code is [${verifyCode} (valid for ${verifyCodeExpireTime} minutes)]`
         });
         logger.info(
           chalk.green(
-            `已向用户 [${target.username} (${target.email})] 发送验证码为 ${verifyCode}`
+            `Verification code ${verifyCode} has been sent to user [${target.username} (${target.email})]`
           )
         );
         socket.body = JSONStringify({
           status: true,
-          message: '验证码已发送'
+          message: 'Verification code sent'
         });
       } else {
         logger.warn(
           chalk.yellow(
-            `用户 [${target.username} (${target.email})] 邮箱地址不合法`
+            `User [${target.username} (${target.email})] has an invalid email address`
           )
         );
         socket.body = JSONStringify({
           status: false,
-          message: '邮箱地址不合法'
+          message: 'Invalid email address'
         });
       }
     } catch (error) {
-      logger.error(chalk.red(`邮箱服务配置错误 ${(error as Error).message}`));
+      logger.error(
+        chalk.red(
+          `Email service configuration error: ${(error as Error).message}`
+        )
+      );
       socket.body = JSONStringify({
         status: false,
-        message: '邮箱服务配置错误'
+        message: 'Email service configuration error'
       });
     }
   }

@@ -12,27 +12,28 @@ export default class UsernameValidatorHelper {
     if (username.length < this.minLength) {
       return {
         valid: false,
-        message: `用户名长度必须至少为 ${this.minLength} 个字符。`
+        message: `The username must be at least ${this.minLength} characters long.`
       };
     }
 
     if (username.length > this.maxLength) {
       return {
         valid: false,
-        message: `用户名的长度不得超过 ${this.maxLength} 个字符。`
+        message: `The username cannot exceed ${this.maxLength} characters.`
       };
     }
 
     if (!this.allowedCharacters.test(username)) {
       return {
         valid: false,
-        message: '用户名只能包含字母、数字和下划线。'
+        message:
+          'The username can only contain letters, numbers, and underscores.'
       };
     }
 
     return {
       valid: true,
-      message: '用户名有效。'
+      message: 'The username is valid.'
     };
   }
 }

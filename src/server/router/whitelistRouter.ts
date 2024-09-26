@@ -10,12 +10,15 @@ import GenerateRandomCaptcha from '../util/grcUtil';
 import dataBodyVerifyUtil, {
   DataBodyVerifyInterface
 } from '../util/dataBodyVerifyUtil';
-import userDataStorage from '../util/userDataStorage';
+import userDataStorage from '../util/userDataStorageUtil';
 import { getConfig } from '../util/apiUtil';
 import { ConfigType } from '../type/serviceType';
 
 const koaRouter: KoaRouter = new KoaRouter();
 
+/**
+ * Function to add a player to the whitelist.
+ */
 async function addWhitelist(
   rs: Rcon,
   socket: ParameterizedContext,
@@ -29,43 +32,51 @@ async function addWhitelist(
 
   if (player) {
     await rs.send(`whitelist add ${username}`);
-    logger.info(chalk.green(`用户: [${username}] 添加到白名单成功!`));
+    logger.info(
+      chalk.green(`User: [${username}] successfully added to the whitelist!`)
+    );
     await rs.send('whitelist reload');
-    logger.info(chalk.green(`白名单重载中!`));
+    logger.info(chalk.green(`Reloading whitelist!`));
     userDataStorage.Save({
       username,
       email
     });
     socket.body = JSONStringify({
       code: 200,
-      message: '添加白名单成功!',
+      message: 'Successfully added to the whitelist!',
       data: []
     });
   } else {
     logger.warn(
-      chalk.yellow(`用户: [${username}] 添加到白名单失败, 查看是否重复添加!`)
+      chalk.yellow(
+        `User: [${username}] failed to add to the whitelist, possible duplicate addition!`
+      )
     );
     socket.body = JSONStringify({
       code: 300,
-      message: '添加白名单失败, 查看是否已经在白名单中!',
+      message: 'Failed to add to the whitelist, check if already whitelisted!',
       data: []
     });
   }
 }
 
+// Rcon service event listeners
 rconService.on('connect', () =>
-  logger.info(chalk.green('Rcon 服务已连接, 正在进行认证'))
+  logger.info(chalk.green('Rcon service connected, authenticating'))
 );
 rconService.on('authenticated', (): void => {
-  logger.info(chalk.green('Rcon 服务认证成功\n'));
+  logger.info(chalk.green('Rcon service authenticated successfully\n'));
 });
 rconService.on('error', () => {
-  logger.warn(chalk.yellow('Rcon 服务连接错误'));
+  logger.warn(chalk.yellow('Rcon service connection error'));
 });
 rconService.on('end', (): void => {
-  logger.error(chalk.red('Rcon 服务已关闭'));
+  logger.error(chalk.red('Rcon service has been closed'));
 });
 
+/**
+ * Route to add a user to the whitelist.
+ */
 koaRouter.post(
   '/whitelist',
   async (socket: ParameterizedContext): Promise<void> => {
@@ -77,6 +88,7 @@ koaRouter.post(
     const { valid, code, message }: DataBodyVerifyInterface =
       dataBodyVerifyUtil(dataBody);
     const configType: ConfigType = 'globalConfig';
+
     if (getConfig(configType, 'debugMode') as boolean)
       logger.debug(`
     [DataBody]: ${dataBody}
@@ -87,6 +99,7 @@ koaRouter.post(
     [Code]: ${code}
     [Message]: ${message}
     `);
+
     if (valid) {
       const { valid, message }: { valid: boolean; message: string } =
         UsernameValidatorHelper.validate(username);
@@ -94,7 +107,9 @@ koaRouter.post(
         await addWhitelist(rconService, socket, username, email);
       } else {
         logger.warn(
-          chalk.yellow(`用户: [${username}] 添加到白名单失败, ${message}!`)
+          chalk.yellow(
+            `User: [${username}] failed to add to the whitelist, ${message}!`
+          )
         );
         socket.body = JSONStringify({
           code: 310,
@@ -113,6 +128,9 @@ koaRouter.post(
   }
 );
 
+/**
+ * Function to connect to the Rcon service.
+ */
 export async function connectRconService(): Promise<void> {
   await rconService.connect();
 }

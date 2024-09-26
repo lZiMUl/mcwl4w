@@ -18,7 +18,7 @@ window.addEventListener('load', async (): Promise<void> => {
     new Alert({
       title: document.title,
       content,
-      close: '知道了!'
+      close: 'Got it!'
     });
   }
 
@@ -53,10 +53,10 @@ window.addEventListener('load', async (): Promise<void> => {
   sentVerifyCode.addEventListener('click', async (): Promise<void> => {
     const email: string = getValue('email');
     if (!email) {
-      return showAlert('邮箱地址不能为空');
+      return showAlert('Email address cannot be empty.');
     }
     if (!emailRegex.test(email)) {
-      return showAlert('邮箱地址不合法');
+      return showAlert('Invalid email address.');
     }
     sentVerifyCode.disabled = true;
     fetch('/sentVerifyCode', {
@@ -78,10 +78,10 @@ window.addEventListener('load', async (): Promise<void> => {
       showAlert(message);
       if (status) {
         const dsq = setInterval((): void => {
-          sentVerifyCode.innerText = `重新发送: ${time--}s`;
+          sentVerifyCode.innerText = `Resend in: ${time--}s`;
           if (time < 0) {
             time = 60;
-            sentVerifyCode.innerText = '获取验证码';
+            sentVerifyCode.innerText = 'Get Verification Code';
             sentVerifyCode.disabled = false;
             clearInterval(dsq);
           }
