@@ -117,7 +117,7 @@ contactLink = "https://qm.qq.com/q/123456789"
 # 主机
 host = "0.0.0.0"
 # 端口
-port = 22
+port = 80
 # 网站会话超时时间 (单位:分钟)
 sessionTimeout = 10
 

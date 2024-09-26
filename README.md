@@ -117,7 +117,7 @@ contactLink = "https://discord.com/"
 # Host
 host = "0.0.0.0"
 # Port
-port = 22
+port = 80
 # Website session timeout (unit: minutes)
 sessionTimeout = 10
 
