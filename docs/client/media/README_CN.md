@@ -10,7 +10,7 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 
 <br />
 
-<p align="center">
+<div align="center">
   <a href="https://github.com/lZiMUl/mcwl4w/">
     <img src="/assets/image/icon/logo.png" alt="Logo" width="120" height="120">
   </a>
@@ -25,7 +25,7 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
     ·
     <a href="https://github.com/lZiMUl/mcwl4w/issues">提出新特性</a>
   </p>
-</p>
+</div>
 
 [![BiliBili][bilibili-shield]][bilibili-url]
 [![Contributors][contributors-shield]][contributors-url]
@@ -117,7 +117,7 @@ contactLink = "https://qm.qq.com/q/123456789"
 # 主机
 host = "0.0.0.0"
 # 端口
-port = 22
+port = 80
 # 网站会话超时时间 (单位:分钟)
 sessionTimeout = 10
 

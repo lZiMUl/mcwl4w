@@ -31,7 +31,7 @@ const serviceType: ServiceType = 'webService';
 // Get host and port
 const [host, port]: Array<string | number> = [
   program.opts().host ?? getConfig(serviceType, 'host') ?? '0.0.0.0',
-  program.opts().port ?? getConfig(serviceType, 'port') ?? '22'
+  program.opts().port ?? getConfig(serviceType, 'port') ?? '80'
 ];
 
 logger.info(
