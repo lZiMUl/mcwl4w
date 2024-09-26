@@ -2,7 +2,7 @@
 import { ParameterizedContext } from 'koa';
 import KoaRouter from 'koa-router';
 import { JSONStringify, uuidV7 } from '../helper/helper';
-import { generateExpireTime } from '../util/apiUtil';
+import { generateExpireTime, getConfig } from '../util/apiUtil';
 
 // Initialize koa-router instance
 const koaRouter: KoaRouter = new KoaRouter();
@@ -15,7 +15,7 @@ koaRouter.get(
     socket.type = 'application/json';
     socket.body = JSONStringify({
       session: uuidV7(),
-      expireTime: generateExpireTime(20)
+      expireTime: generateExpireTime(getConfig('webService', 'sessionTimeout'))
     });
   }
 );
