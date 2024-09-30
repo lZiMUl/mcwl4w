@@ -50,7 +50,7 @@
     "Safe"
   ],
   "dependencies": {
-    "@faker-js/faker": "^8.4.1",
+    "@faker-js/faker": "^9.0.3",
     "axios": "^1.7.4",
     "chalk": "^4.1.2",
     "commander": "^12.1.0",
