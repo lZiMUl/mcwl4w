@@ -1,6 +1,9 @@
 # mcwl4w
 
-mcwl4w is a project designed to provide a convenient whitelist application for Minecraft servers through an online website. It allows players to submit their application information, such as username and email, via a simple web form. This project aims to enhance server management efficiency while optimizing the gaming experience for players, ensuring that only eligible players can join the server.
+mcwl4w is a project designed to provide a convenient whitelist application for Minecraft servers through an online
+website. It allows players to submit their application information, such as username and email, via a simple web form.
+This project aims to enhance server management efficiency while optimizing the gaming experience for players, ensuring
+that only eligible players can join the server.
 
 ## Browser Support
 
@@ -51,6 +54,8 @@ mcwl4w is a project designed to provide a convenient whitelist application for M
 
 <img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">
 
+<img src="/assets/image/preview/preview4.png" alt="Logo" width="500" height="*">
+
 ## Installation
 
 1. **Download the project locally**
@@ -83,11 +88,13 @@ mcwl4w is a project designed to provide a convenient whitelist application for M
     ```
 
 ## Usage
+
 1. Visit the homepage of the website.
 2. Fill out and submit the whitelist application form.
 3. The administrator reviews the application and updates the whitelist.
 
 ## Contribution
+
 Contributions in any form are welcome! Please fork this project and submit a pull request.
 
 ## License

@@ -3,11 +3,11 @@
 # Website Title
 title = "Minecraft Server - Whitelist Self-Verification"
 # Contact Prompt
-contactContent = "Join QQ Group"
+contactContent = "Join Discord Group"
 # Group Number
 contactNumber = "123456789"
 # Link
-contactLink = "https://qm.qq.com/q/123456789"
+contactLink = "https://discord.com/"
 
 # Web Service Configuration
 [webService]
