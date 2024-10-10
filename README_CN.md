@@ -1,6 +1,7 @@
 # mcwl4w
 
-mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名单申请的项目, 它允许玩家通过简单的网页表单提交他们的申请信息，如用户名、邮箱等，这一项目旨在提升服务器管理的效率，同时优化玩家的游戏体验，确保只有符合要求的玩家能够加入服务器。
+mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名单申请的项目,
+它允许玩家通过简单的网页表单提交他们的申请信息，如用户名、邮箱等，这一项目旨在提升服务器管理的效率，同时优化玩家的游戏体验，确保只有符合要求的玩家能够加入服务器。
 
 ## Browser Support
 
@@ -48,6 +49,8 @@ mcwl4w 是一个旨在通过在线网站为Minecraft服务器提供便捷白名�
 <img src="/assets/image/preview/preview2.png" alt="Logo" width="500" height="*">
 
 <img src="/assets/image/preview/preview3.png" alt="Logo" width="500" height="*">
+
+<img src="/assets/image/preview/preview4.png" alt="Logo" width="500" height="*">
 
 ## 安装
 
