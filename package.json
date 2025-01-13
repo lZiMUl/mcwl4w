@@ -62,7 +62,7 @@
     "semver": "^7.6.3",
     "toml": "^3.0.0",
     "tslib": "^2.8.1",
-    "uuid": "^11.0.4"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
