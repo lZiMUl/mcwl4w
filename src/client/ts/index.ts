@@ -47,10 +47,10 @@ window.addEventListener('load', async (): Promise<void> => {
   let time: number = 60;
   const emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  const sentVerifyCode: HTMLButtonElement = document.getElementById(
-    'sentVerifyCode'
+  const sendVerifyCode: HTMLButtonElement = document.getElementById(
+    'sendVerifyCode'
   ) as HTMLButtonElement;
-  sentVerifyCode.addEventListener('click', async (): Promise<void> => {
+  sendVerifyCode.addEventListener('click', async (): Promise<void> => {
     const email: string = getValue('email');
     if (!email) {
       return showAlert('Email address cannot be empty.');
@@ -58,8 +58,8 @@ window.addEventListener('load', async (): Promise<void> => {
     if (!emailRegex.test(email)) {
       return showAlert('Invalid email address.');
     }
-    sentVerifyCode.disabled = true;
-    fetch('/sentVerifyCode', {
+    sendVerifyCode.disabled = true;
+    fetch('/sendVerifyCode', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -78,15 +78,15 @@ window.addEventListener('load', async (): Promise<void> => {
       showAlert(message);
       if (status) {
         const dsq = setInterval((): void => {
-          sentVerifyCode.innerText = `Resend in: ${time--}s`;
+          sendVerifyCode.innerText = `Resend in: ${time--}s`;
           if (time < 0) {
             time = 60;
-            sentVerifyCode.innerText = 'Get Verification Code';
-            sentVerifyCode.disabled = false;
+            sendVerifyCode.innerText = 'Get Verification Code';
+            sendVerifyCode.disabled = false;
             clearInterval(dsq);
           }
         }, 1000);
-      } else sentVerifyCode.disabled = false;
+      } else sendVerifyCode.disabled = false;
     });
   });
 

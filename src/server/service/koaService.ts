@@ -8,7 +8,7 @@ import index from '../router/indexRouter';
 import getSession from '../router/getSessionRouter';
 import getConfigInfo from '../router/getConfigInfoRouter';
 import whitelist, { connectRconService } from '../router/whitelistRouter';
-import sentVerifyCode from '../router/sentVerifyCodeRouter';
+import sendVerifyCode from '../router/sendVerifyCodeRouter';
 
 // Initialize koa instance
 const koaService: Koa = new Koa();
@@ -26,7 +26,7 @@ koaService.use(index);
 koaService.use(getSession);
 koaService.use(getConfigInfo);
 koaService.use(whitelist);
-koaService.use(sentVerifyCode);
+koaService.use(sendVerifyCode);
 
 // Set up the 404 page
 koaService.use(

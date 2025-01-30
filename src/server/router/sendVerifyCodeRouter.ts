@@ -45,7 +45,7 @@ koaRouter.post(
         );
         socket.body = JSONStringify({
           status: true,
-          message: 'Verification code sent'
+          message: 'Verification code send'
         });
       } else {
         logger.warn(
