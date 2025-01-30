@@ -1,5 +1,5 @@
 // Import basic dependencies
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import semver from 'semver';
 import koaService, { connectRconService } from './service/koaService';
 import { Command, Option } from 'commander';
@@ -49,7 +49,7 @@ axios
     method: 'GET',
     timeout: 5000
   })
-  .then(({ data: { version: remoteVersion } }): void => {
+  .then(({ data: { version: remoteVersion } }: AxiosResponse): void => {
     if (semver.lt(localVersion, remoteVersion)) {
       logger.warn(
         chalk.yellow(`A newer version (${remoteVersion}) is available.`)

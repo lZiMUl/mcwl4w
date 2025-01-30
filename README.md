@@ -154,8 +154,6 @@ password = ""
 
 <!-- links -->
 
-[your-project-path]:lZiMUl/mcwl4w
-
 [bilibili-shield]: https://img.shields.io/badge/mcwl4w%20Developer%20Bilibili-red?logo=bilibili
 
 [bilibili-url]: https://space.bilibili.com/291883246
