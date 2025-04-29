@@ -7,7 +7,6 @@ import { getConfig } from './util/apiUtil';
 import { chalk, logger } from './helper/helper';
 import { ServiceType } from './type/serviceType';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { version as localVersion } from '../package.json';
 

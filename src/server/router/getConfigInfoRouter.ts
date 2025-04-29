@@ -10,7 +10,7 @@ const koaRouter: KoaRouter = new KoaRouter();
 
 const configType: ConfigType = 'globalConfig';
 
-// Create router path
+// Create a router path
 koaRouter.get(
   '/getConfigInfo',
   async (socket: ParameterizedContext): Promise<void> => {
