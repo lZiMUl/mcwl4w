@@ -50,7 +50,7 @@
   "dependencies": {
     "@faker-js/faker": "^9.3.0",
     "axios": "^1.7.9",
-    "chalk": "^4.1.2",
+    "chalk": "^5.4.1",
     "commander": "^13.0.0",
     "koa": "^2.15.3",
     "koa-bodyparser": "^4.4.1",
